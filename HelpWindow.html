@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team 15-3</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -18,15 +18,17 @@
 <li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#searching-persons-by-personal-information-code-search-code">3.6. Searching persons by personal information: <code>search</code></a></li>
+<li><a href="#adding-tags-base-on-personal-information-code-addtag-code">3.7. Adding tags base on personal information : <code>addtag</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.15. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -51,7 +53,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103-AY1819S2-W15-3/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -130,7 +132,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR c/COMPANY [mo/MOUDLE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -140,6 +142,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 </td>
 <td class="content">
 A person can have any number of tags (including 0)
+A person can have any number of moudules (including 0)
 </td>
 </tr>
 </table>
@@ -150,10 +153,10 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, m/CS c/Amazon #01-01</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal m/ME c/Facebook mo/CS2103 mo/CS2105</code></p>
 </li>
 </ul>
 </div>
@@ -169,7 +172,7 @@ Format: <code>list</code></p>
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [c/COMPANY] [mo/MOUDLE] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -189,6 +192,9 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 </li>
 <li>
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+<li>
+<p>You can remove all the person&#8217;s moudles by typing <code>mo/</code> without specifying any moudles after it.</p>
 </li>
 </ul>
 </div>
@@ -256,7 +262,88 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="searching-persons-by-personal-information-code-search-code"><a class="link" href="#searching-persons-by-personal-information-code-search-code">3.6. Searching persons by personal information: <code>search</code></a></h3>
+<div class="paragraph">
+<p>Searchs persons whose personal information exactly is the given keywords in specific field.<br>
+Format: <code>search [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/COMPANY] [mo/MOUDLE] [t/TAG]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>cs</code> will match <code>CS</code></p>
+</li>
+<li>
+<p>Any personal information is searched.</p>
+</li>
+<li>
+<p>Only full information will be matched e.g. <code>computer</code> will not match <code>Computer Science</code></p>
+</li>
+<li>
+<p>Persons matching all keywords will be returned (i.e. <code>AND</code> search).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>search m/CS</code><br>
+Returns people whose major is <code>CS</code></p>
+</li>
+<li>
+<p><code>search m/CS c/Facebook</code><br>
+Returns any person whose major is <code>CS</code> and company is <code>Facebook</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-tags-base-on-personal-information-code-addtag-code"><a class="link" href="#adding-tags-base-on-personal-information-code-addtag-code">3.7. Adding tags base on personal information : <code>addtag</code></a></h3>
+<div class="paragraph">
+<p>Adds tag for people by their personal information.<br>
+Format: <code>addtag TAGNAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/COMPANY] [mo/MOUDLE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds tag for people at the specified field.</p>
+</li>
+<li>
+<p>The TAGNAME refers to the tag name you want to add to people.</p>
+</li>
+<li>
+<p>Persons matching all keywords will be add tag (i.e. <code>AND</code> search).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addtag CS m/CS</code>
+Add CS tag for all people whose major is <code>CS</code>.</p>
+</li>
+<li>
+<p><code>addtag Assignment t/friend m/CS</code>
+Add <code>Assignment</code> tag for all people whose major is <code>CS</code> and have tag <code>friend</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -297,7 +384,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the displayed person list.<br>
 Format: <code>select INDEX</code></p>
@@ -338,7 +425,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -359,7 +446,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -404,7 +491,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -436,28 +523,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -519,4 +606,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-18 13:32:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-18 14:29:11 UTC</div></div></div></body></html>
