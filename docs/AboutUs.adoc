@@ -12,7 +12,7 @@ We are a team based in the http://www.comp.nus.edu.sg[School of Computing, Natio
 == Project Team
 
 === Chiu Yu Hua
-image::capture.jpg[width="150", align="left"]
+image::capture.png[width="150", align="left"]
 {empty}[http://www.chiuyuhua.com[homepage]] [https://github.com/chiuyuhua[github]] [<<chiuyuhua#, portfolio>>]
 
 Role: 
