@@ -1,0 +1,9 @@
+{
+  "persons" : [ {
+    "name" : "Daniel Sim",
+    "phone" : "92206105",
+    "email" : "DanielDSSim@gmail.com",
+    "address" : "61 Yio Chu Kang Drive",
+    "tagged" : [ ]
+  } ]
+}
