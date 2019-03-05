@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>social Circle - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>slaveFinder() - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>social Circle - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>slaveFinder() - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team 15-3</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
@@ -25,10 +25,15 @@
 <li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#arrange-interview-dates-code-arrange_interviews-code-code-coming-in-v1-4-code">3.13. Arrange Interview Dates : <code>arrange_interviews</code> <code>Coming in v1.4</code></a></li>
+<li><a href="#read-to-slavefinder-code-readall-code-code-coming-in-v1-4-code">3.14. Read to slaveFinder() : <code>readAll</code> <code>Coming in v1.4</code></a></li>
+<li><a href="#get-ranked-list-code-getrankedlist-code-code-coming-in-v1-4-code">3.15. Get ranked list : <code>getRankedList</code> <code>Coming in v1.4</code></a></li>
+<li><a href="#filter-search-results-code-filter-code-code-coming-in-v1-4-code">3.16. Filter search results : <code>filter</code> <code>Coming in v1.4</code></a></li>
+<li><a href="#display-hiring-process-for-a-specific-role-code-displayprocess-code-code-coming-in-v1-4-code">3.17. Display Hiring process for a specific role : <code>displayProcess</code> <code>Coming in v1.4</code></a></li>
+<li><a href="#display-analytics-code-displayanalytics-code-code-coming-in-v1-4-code">3.18. Display Analytics : <code>displayAnalytics</code> <code>Coming in v1.4</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.21. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -40,7 +45,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>social Circle is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, social Circle is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, social Circle can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>slaveFinder() is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, social Circle is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, social Circle can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -132,20 +137,20 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS m/MAJOR c/COMPANY [mo/MOUDLE] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL [pj/PAST_JOB]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-A person can have any number of moudules (including 0)
-</td>
-</tr>
-</table>
+<div class="ulist TIP">
+<ul class="TIP">
+<li>
+<p>A person can have any number of tags (including 0)</p>
+</li>
+<li>
+<p>A person can have any number of past jobs (including 0)</p>
+</li>
+<li>
+<p>A person can only have "CS", "ME", "MATH", "ECON", "Computer Science" as their majors (case sensitive)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -153,10 +158,10 @@ A person can have any number of moudules (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, m/CS c/Amazon #01-01</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123 g/Male r/Chinese m/CS s/NUS</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal m/ME c/Facebook mo/CS2103 mo/CS2105</code></p>
+<p><code>add n/Betsy Crowe g/Polygender p/12345678 t/friend e/betsycrowe@example.com a/Newgate Prison r/Indian p/1234567 t/criminal m/ME s/NTU pj/Hacker</code></p>
 </li>
 </ul>
 </div>
@@ -172,7 +177,7 @@ Format: <code>list</code></p>
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [c/COMPANY] [mo/MOUDLE] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -264,8 +269,8 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect2">
 <h3 id="searching-persons-by-personal-information-code-search-code"><a class="link" href="#searching-persons-by-personal-information-code-search-code">3.6. Searching persons by personal information: <code>search</code></a></h3>
 <div class="paragraph">
-<p>Searchs persons whose personal information exactly is the given keywords in specific field.<br>
-Format: <code>search [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/COMPANY] [mo/MOUDLE] [t/TAG]</code></p>
+<p>Search persons whose personal information exactly to the given keywords in the specific fields.<br>
+Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -297,8 +302,8 @@ Format: <code>search [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/COMPANY] [mo/MOUDLE] [t/
 Returns people whose major is <code>CS</code></p>
 </li>
 <li>
-<p><code>search m/CS c/Facebook</code><br>
-Returns any person whose major is <code>CS</code> and company is <code>Facebook</code></p>
+<p><code>search m/CS s/NUS</code><br>
+Returns any person whose major is <code>CS</code> and school is <code>NUS</code></p>
 </li>
 </ul>
 </div>
@@ -523,30 +528,69 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="arrange-interview-dates-code-arrange_interviews-code-code-coming-in-v1-4-code"><a class="link" href="#arrange-interview-dates-code-arrange_interviews-code-code-coming-in-v1-4-code">3.13. Arrange Interview Dates : <code>arrange_interviews</code> <code>Coming in v1.4</code></a></h3>
+<div class="paragraph">
+<p>Arrange interview dates for applicant based on relevance to the job opening and
+sends the applicants their respective interview timings to the email they provided based on their relevance to the role.<br>
+Format : <code>arrange_interviews</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="read-to-slavefinder-code-readall-code-code-coming-in-v1-4-code"><a class="link" href="#read-to-slavefinder-code-readall-code-code-coming-in-v1-4-code">3.14. Read to slaveFinder() : <code>readAll</code> <code>Coming in v1.4</code></a></h3>
+<div class="paragraph">
+<p>Given input resume txt files in placed in the resumes folder, reads all the resumes and saves them into slaveFinder().
+Format : <code>readAll</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="get-ranked-list-code-getrankedlist-code-code-coming-in-v1-4-code"><a class="link" href="#get-ranked-list-code-getrankedlist-code-code-coming-in-v1-4-code">3.15. Get ranked list : <code>getRankedList</code> <code>Coming in v1.4</code></a></h3>
+<div class="paragraph">
+<p>Returns a ranked list of applicants with the applicants better suited for the job based on his/her resume submitted
+displayed at the top.<br>
+Format : <code>getRankedList</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-search-results-code-filter-code-code-coming-in-v1-4-code"><a class="link" href="#filter-search-results-code-filter-code-code-coming-in-v1-4-code">3.16. Filter search results : <code>filter</code> <code>Coming in v1.4</code></a></h3>
+<div class="paragraph">
+<p>Based on the search results returned from <code>search</code> returns a new list with the filter applied.<br>
+Format: <code>filter [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-hiring-process-for-a-specific-role-code-displayprocess-code-code-coming-in-v1-4-code"><a class="link" href="#display-hiring-process-for-a-specific-role-code-displayprocess-code-code-coming-in-v1-4-code">3.17. Display Hiring process for a specific role : <code>displayProcess</code> <code>Coming in v1.4</code></a></h3>
+<div class="paragraph">
+<p>Shows 3 categories of applicants for a specific role:
+"Applied", "(KIV) Keep in View", "Interviewed", "To be sent to boss".<br>
+Format : <code>displayProcess</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-analytics-code-displayanalytics-code-code-coming-in-v1-4-code"><a class="link" href="#display-analytics-code-displayanalytics-code-code-coming-in-v1-4-code">3.18. Display Analytics : <code>displayAnalytics</code> <code>Coming in v1.4</code></a></h3>
+<div class="paragraph">
+<p>Display the analytics of applicants the company has hired<br>
+Format : <code>displayAnalytics</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -566,8 +610,9 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL [pj/PAST_JOB]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665
+g/Male r/Chinese m/MATH s/NUS pj/Professor t/friend t/colleague</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -577,12 +622,18 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
+[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>Search</strong> : <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
+[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>search s/NUS</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -603,7 +654,27 @@ e.g.<code>select 2</code></p>
 <li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
+<li>
+<p><strong>Arrange Interviews</strong> : <code>arrangeInterviews</code></p>
+</li>
+<li>
+<p><strong>Read to slaveFinder()</strong> : <code>readAll</code></p>
+</li>
+<li>
+<p><strong>Get ranked list</strong> : <code>getRankedList</code></p>
+</li>
+<li>
+<p><strong>Filter search results</strong> : <code>filter [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
+[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>filter r/Chinese</code></p>
+</li>
+<li>
+<p><strong>Display Hiring Process</strong> : <code>displayProcess</code></p>
+</li>
+<li>
+<p><strong>Display Analytics</strong> : <code>displayAnalytics</code></p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-05 07:30:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-05 15:06:25 UTC</div></div></div></body></html>
