@@ -347,7 +347,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <h4 id="searching-persons-by-personal-information-code-search-code"><a class="link" href="#searching-persons-by-personal-information-code-search-code">3.1.7. Searching persons by personal information: <code>search</code></a></h4>
 <div class="paragraph">
 <p>Search persons whose personal information exactly to the given keywords in the specific fields.<br>
-Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [m/MAJOR]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -363,7 +363,10 @@ Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE
 <p>Only full information will be matched e.g. <code>computer</code> will not match <code>Computer Science</code></p>
 </li>
 <li>
-<p>Persons matching all keywords will be returned (i.e. <code>AND</code> search).</p>
+<p>In each field, persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+<li>
+<p>In whole command, persons matching all fields will be returned (i.e. <code>AND</code> search). e.g. <code>m/CS s/NUS</code> will only return persons who are NUS&#8217;s CS students.</p>
 </li>
 </ul>
 </div>
@@ -843,4 +846,4 @@ e.g. <code>filter r/Chinese</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 10:19:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 15:03:00 UTC</div></div></div></body></html>
