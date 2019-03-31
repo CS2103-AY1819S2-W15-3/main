@@ -23,7 +23,6 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.analytics.Analytics;
 import seedu.address.model.interviews.Interviews;
 import seedu.address.model.job.Job;
 import seedu.address.model.person.Person;
@@ -226,7 +225,7 @@ public class CreateJobCommandTest {
         }
 
         @Override
-        public Analytics generateAnalytics() {
+        public String generateAnalytics() {
             throw new AssertionError("This method should not be called.");
         }
 

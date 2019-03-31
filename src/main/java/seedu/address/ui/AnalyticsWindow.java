@@ -3,12 +3,9 @@ package seedu.address.ui;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.analytics.Analytics;
 
 /**
  * Controller for a analytics page
@@ -16,25 +13,10 @@ import seedu.address.model.analytics.Analytics;
 public class AnalyticsWindow extends UiPart<Stage> {
 
     private static final Logger logger = LogsCenter.getLogger(AnalyticsWindow.class);
-    private static final String FXML = "AnalyticsChart.fxml";
+    private static final String FXML = "AnalyticsWindow.fxml";
 
     @FXML
-    private BarChart jobApplicationsChart;
-    @FXML
-    private BarChart interviewScoresChart;
-    @FXML
-    private TextArea gradeText;
-    @FXML
-    private PieChart genderChart;
-    @FXML
-    private PieChart raceChart;
-    @FXML
-    private BarChart schoolChart;
-    @FXML
-    private BarChart majorChart;
-    @FXML
-    private BarChart pastJobsChart;
-
+    private TextArea analyticsDisplay;
 
     /**
      * Creates a new AnalyticsWindow.
@@ -70,17 +52,10 @@ public class AnalyticsWindow extends UiPart<Stage> {
      *     </li>
      * </ul>
      */
-    public void show(Analytics analytics) {
+    public void show(String analytics) {
         logger.fine("Showing analytics results.");
         getRoot().show();
-        jobApplicationsChart.setData(analytics.generateJobApplicationData());
-        interviewScoresChart.setData(analytics.generateInterviewScoresData());
-        gradeText.setText("Mean Grade: " + analytics.generateMeanGradeData());
-        genderChart.setData(analytics.generateGenderData());
-        raceChart.setData(analytics.generateRaceData());
-        schoolChart.setData(analytics.generateSchoolData());
-        majorChart.setData(analytics.generateMajorData());
-        pastJobsChart.setData(analytics.generateJobApplicationData());
+        analyticsDisplay.setText(analytics);
     }
 
     /**

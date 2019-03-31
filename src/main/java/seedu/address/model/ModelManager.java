@@ -249,9 +249,9 @@ public class ModelManager implements Model {
     /**
      * Obtains current viewed list and generate analytics based on it
      * */
-    public Analytics generateAnalytics() {
+    public String generateAnalytics() {
         Analytics analytics = new Analytics(getFilteredPersonList());
-        return analytics;
+        return analytics.generate();
     }
 
     @Override

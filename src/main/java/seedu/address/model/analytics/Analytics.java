@@ -1,14 +1,11 @@
 package seedu.address.model.analytics;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.XYChart;
 import seedu.address.model.person.JobsApply;
 import seedu.address.model.person.PastJob;
 import seedu.address.model.person.Person;
@@ -27,91 +24,50 @@ public class Analytics {
     }
 
     /**
-     * Generates Barchart data from job application breakdown list
+     * Generate full analytics report
      * */
-    public ObservableList<XYChart.Series<String, Integer>> generateJobApplicationData() {
-        return generateBarChartDataFromSet(jobApplicationBreakdown());
-    }
 
-    /**
-     * Generates Barchart data from major breakdown list
-     * */
-    public ObservableList<XYChart.Series<String, Integer>> generateMajorData() {
-        return generateBarChartDataFromSet(majorBreakdown());
-    }
+    public String generate() {
+        Float meanGrade = meanGrade();
+        ArrayList<Float> meanInterviewSores = meanInterviewScores();
+        ArrayList<Integer> genderBreakdown = genderBreakdown();
+        ArrayList<Integer> raceBreakdown = raceBreakdown();
+        HashMap<String, Integer> majorBreakdown = majorBreakdown();
+        HashMap<String, Integer> schoolBreakdown = schoolBreakdown();
+        HashMap<String, Integer> pastJobBreakdown = pastJobBreakdown();
+        HashMap<String, Integer> jobApplicationBreakdown = jobApplicationBreakdown();
+        DecimalFormat df = new DecimalFormat("#.00");
 
-    /**
-     * Generates Barchart data from school breakdown list
-     * */
-    public ObservableList<XYChart.Series<String, Integer>> generateSchoolData() {
-        return generateBarChartDataFromSet(schoolBreakdown());
-    }
+        String finalReport;
+        String reportMeanGrade;
+        String reportMeanInterviewScores;
+        String reportGender;
+        String reportRace;
+        String reportMajor;
+        String reportSchool;
+        String reportPastJob;
+        String reportJobApply;
 
-    /**
-     * Generates Barchart data from past job breakdown list
-     * */
-    public ObservableList<XYChart.Series<String, Integer>> generatePastJobData() {
-        return generateBarChartDataFromSet(pastJobBreakdown());
-    }
+        reportMeanGrade = "Average Grade: " + df.format(meanGrade);
+        reportMeanInterviewScores = "Average Interview Scores:" + "\n" + "Q1: " + df.format(meanInterviewSores.get(0))
+                + "\n" + "Q2: " + df.format(meanInterviewSores.get(1))
+                + "\n" + "Q3: " + df.format(meanInterviewSores.get(2))
+                + "\n" + "Q4: " + df.format(meanInterviewSores.get(3))
+                + "\n" + "Q5: " + df.format(meanInterviewSores.get(4));
+        reportGender = "Gender \n" + "Female: " + genderBreakdown.get(0) + "\n" + "Male: " + genderBreakdown.get(1)
+                + "\n" + "Others: " + genderBreakdown.get(2);
+        reportRace = "Race \n" + "Chinese: " + raceBreakdown.get(0) + "\n" + "Malay: " + raceBreakdown.get(1) + "\n"
+                + "Indian: " + raceBreakdown.get(2) + "\n" + "Others: " + raceBreakdown.get(3);
+        reportMajor = "Major \n" + generateStringFromSet(majorBreakdown);
+        reportSchool = "School \n" + generateStringFromSet(schoolBreakdown);
+        reportPastJob = "Past Jobs \n" + generateStringFromSet(pastJobBreakdown);
+        reportJobApply = "Job Applications \n" + generateStringFromSet(jobApplicationBreakdown);
 
-    /**
-     * Return mean grade data
-     * */
-    public Float generateMeanGradeData() {
-        return meanGrade();
-    }
+        finalReport = reportJobApply + "\n\n" + reportMeanGrade + "\n\n" + reportMeanInterviewScores + "\n\n"
+                + reportGender + "\n\n" + reportRace + "\n\n" + reportMajor + "\n\n" + reportSchool + "\n\n"
+                + reportPastJob;
 
-    /**
-     * Generates Barchart data from interview scores breakdown list
-     * */
-    public ObservableList<XYChart.Series<String, Float>> generateInterviewScoresData() {
-        ObservableList<XYChart.Series<String, Float>> data = FXCollections.observableArrayList();
-        ArrayList<Float> scores = meanInterviewScores();
-        XYChart.Series<String, Float> q1 = new XYChart.Series<>();
-        XYChart.Series<String, Float> q2 = new XYChart.Series<>();
-        XYChart.Series<String, Float> q3 = new XYChart.Series<>();
-        XYChart.Series<String, Float> q4 = new XYChart.Series<>();
-        XYChart.Series<String, Float> q5 = new XYChart.Series<>();
-        q1.setName("Q1");
-        q2.setName("Q2");
-        q3.setName("Q3");
-        q4.setName("Q4");
-        q5.setName("Q5");
-        q1.getData().add(new XYChart.Data<>("", scores.get(0)));
-        q2.getData().add(new XYChart.Data<>("", scores.get(1)));
-        q3.getData().add(new XYChart.Data<>("", scores.get(2)));
-        q4.getData().add(new XYChart.Data<>("", scores.get(3)));
-        q5.getData().add(new XYChart.Data<>("", scores.get(4)));
-        data.addAll(q1, q2, q3, q4, q5);
-
-        return data;
-    }
-
-    /**
-     * Generates Piechart data from race breakdown list
-     * */
-    public ObservableList<PieChart.Data> generateRaceData() {
-        ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
-        ArrayList<Integer> race = raceBreakdown();
-        data.add(new PieChart.Data("Chinese", race.get(0)));
-        data.add(new PieChart.Data("Malay", race.get(1)));
-        data.add(new PieChart.Data("Indian", race.get(2)));
-        data.add(new PieChart.Data("Others", race.get(3)));
-
-        return data;
-    }
-
-    /**
-     * Generates Piechart data from gender breakdown list
-     * */
-    public ObservableList<PieChart.Data> generateGenderData() {
-        ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
-        ArrayList<Integer> gender = genderBreakdown();
-        data.add(new PieChart.Data("Female", gender.get(0)));
-        data.add(new PieChart.Data("Male", gender.get(1)));
-        data.add(new PieChart.Data("Others", gender.get(2)));
-
-        return data;
+        return finalReport;
     }
 
     /**
@@ -296,18 +252,15 @@ public class Analytics {
     }
 
     /**
-     * Generates the dataset to be put into a Barchart from any Hashmap with a String key and Integer value
+     * Generates as string output the key and values of any Hashmap with a String key and Integer value
      * */
 
-    private ObservableList<XYChart.Series<String, Integer>> generateBarChartDataFromSet(HashMap<String, Integer> map) {
-        ObservableList<XYChart.Series<String, Integer>> output = FXCollections.observableArrayList();
+    private String generateStringFromSet(HashMap<String, Integer> map) {
+        String output = "";
         Iterator<String> itr = map.keySet().iterator();
         while (itr.hasNext()) {
             String curr = itr.next();
-            XYChart.Series<String, Integer> series = new XYChart.Series<>();
-            series.setName(curr);
-            series.getData().add(new XYChart.Data<>("", map.get(curr)));
-            output.add(series);
+            output += curr + ": " + map.get(curr) + "\n";
         }
         return output;
     }
