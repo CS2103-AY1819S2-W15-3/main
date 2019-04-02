@@ -30,9 +30,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#interviews-feature">3.2. Interviews Feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -73,9 +74,10 @@
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
 <li><a href="#use-case-delete-person">D.1. Use case: Delete person</a></li>
-<li><a href="#use-case-arrange-interview-dates">D.2. Use case: Arrange interview dates</a></li>
-<li><a href="#use-case-search-person">D.3. Use case: Search person</a></li>
-<li><a href="#use-case-view-analytics">D.4. Use case: View Analytics</a></li>
+<li><a href="#use-case-generate-and-show-interview-dates">D.2. Use case: Generate and show interview dates</a></li>
+<li><a href="#use-case-clear-interview-dates">D.3. Use case: Clear interview dates</a></li>
+<li><a href="#use-case-search-person">D.4. Use case: Search person</a></li>
+<li><a href="#use-case-view-analytics">D.5. Use case: View Analytics</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -706,8 +708,55 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="interviews-feature"><a class="link" href="#interviews-feature">3.2. Interviews Feature</a></h3>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The interviews and its functionalities are facilitated by the Interviews class.
+It is a field present in the versionedAddressBook, therefore it works naturally with the implemented undo/redo operation in slaveFinder().
+(Show is not counted as an operation and hence it is not saved as a state).
+The Interview class acts as an association class between calendar and person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InterviewsAssociationClass.png" alt="InterviewsAssociationClass" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>For the generate command. There are total 2 parameters that determines how the interviews list is generated.
+The 2 parameters are: maxInterviewsADay and blockOutDates.
+maxInterviewsADay determines the number of interviews that can be scheduled a day and it is saved in the interviews class
+blockOutDates are the user&#8217;s own block out dates which represent unavailable dates that the user is not free and therefore interviews cannot be scheduled.
+Another thing to note is that weekends are not considered in the scheduled as the user is assumed to have normal working hours from Monday to Friday.</p>
+</div>
+<div class="paragraph">
+<p>Given below is the sequence diagram for generateInterviews:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GenerateInterviewsDiagram.png" alt="GenerateInterviewsDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of generateInterviews:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User launches the application. The blockOutDates field in the interviews class is currently empty.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. User sets the block out dates with the respective command. User does not change the max interviews a day and it it set to a default value.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. User request for interviews to be generated.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -777,20 +826,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -821,7 +870,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2126,32 +2175,98 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-arrange-interview-dates"><a class="link" href="#use-case-arrange-interview-dates">D.2. Use case: Arrange interview dates</a></h3>
+<h3 id="use-case-generate-and-show-interview-dates"><a class="link" href="#use-case-generate-and-show-interview-dates">D.2. Use case: Generate and show interview dates</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to arrange interview dates for applicants</p>
+<p>User requests to arrange interview dates for applicants in slaveFinder()</p>
 </li>
 <li>
-<p>slaveFinder() shows a ranked list of interviewees</p>
+<p>slaveFinder() assigns to each interviewee a date</p>
 </li>
 <li>
-<p>slaveFinder() asks for confirmation of interviewees</p>
+<p>User request for the interview dates list</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User wants to set block out dates so no dates are arranged on that day.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. Block out dates set using the command.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>slaveFinder() assigns to each interviewee a date and shows it to user</p>
+<p>1b. User wants to set maximum interviews a day</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. Max interviews a day set by using</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. User is not satisfied with the dates</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. User request to reassign a person to another date</p>
 </li>
 <li>
-<p>slaveFinder() asks for confirmation of dates</p>
+<p>3a2. slaveFinder() reassigns that person</p>
 </li>
 <li>
-<p>slaveFinder() ask User for confirmation of interviewees and dates</p>
+<p>3a3. slaveFinder() shows the updated interviews dates</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-clear-interview-dates"><a class="link" href="#use-case-clear-interview-dates">D.3. Use case: Clear interview dates</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request to clear interviews</p>
 </li>
 <li>
-<p>Email is sent to the interviewees</p>
+<p>slaveFinder() clears interviews</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 </li>
 </ol>
 </div>
@@ -2161,24 +2276,22 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>3a. User is not satisfied with the interviewees</p>
+<p>3a. User wants to recover the cleared interviews through undo</p>
 </li>
 <li>
-<p>3b. User removes unwanted interviewees<br>
-Use case resumes at step 4.</p>
+<p>3b. slaveFinder() undos the clear interview operation</p>
 </li>
 <li>
-<p>5a. User is not satisfied with the dates</p>
-</li>
-<li>
-<p>5b. User rearranges dates<br>
-Use case resumes at step 6.</p>
+<p>3c. Previous interview dates are recovered.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-search-person"><a class="link" href="#use-case-search-person">D.3. Use case: Search person</a></h3>
+<h3 id="use-case-search-person"><a class="link" href="#use-case-search-person">D.4. Use case: Search person</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2232,7 +2345,7 @@ Use case resumes at step 6.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-view-analytics"><a class="link" href="#use-case-view-analytics">D.4. Use case: View Analytics</a></h3>
+<h3 id="use-case-view-analytics"><a class="link" href="#use-case-view-analytics">D.5. Use case: View Analytics</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2474,4 +2587,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:52:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:10:25 UTC</div></div></div></body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W15-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-slavefinder"><a class="link" href="#project-slavefinder">PROJECT: slaveFinder()</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>slaveFinder() is a desktop address book application used for people in the HR department of a company to help them filter people and schedule interviews. It also helps with analytics of the hiring process in the company.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>Interview scheduling</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+<li>
+<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added a school field which helped in the ranking and filtering of individuals for interviews</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>:</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed release <code>v1.3</code> on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated Model Component image of slaveFinder()</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/44">#44</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated TravisCI, Appveyor, Codacy, and Coveralls to team repo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{you can add/remove categories in the list above}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">Generate Interview Dates : <code>generateInterviews</code></a></h4>
+<div class="paragraph">
+<p>Generate interview dates for applicants in slaveFinder().
+Interview dates cannot be generated again if they are already present.
+Format : <code>generateInterviews</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">Clear Interview Dates : <code>clearInterviews</code></a></h4>
+<div class="paragraph">
+<p>Clears the list of generated interview dates.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
+<div class="paragraph">
+<p>Sets the maximum number of interviews to be generated in a day.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
+<div class="paragraph">
+<p>Sets the block out dates(unavailable dates) which the interviewer is not available for interviews to be scheduled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">Show interviews dates : <code>showInterviews</code></a></h4>
+<div class="paragraph">
+<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="interviews-feature"><a class="link" href="#interviews-feature">Interviews Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The interviews and its functionalities are facilitated by the Interviews class.
+It is a field present in the versionedAddressBook, therefore it works naturally with the implemented undo/redo operation in slaveFinder().
+(Show is not counted as an operation and hence it is not saved as a state).
+The Interview class acts as an association class between calendar and person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewsAssociationClass.png" alt="InterviewsAssociationClass" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>For the generate command. There are total 2 parameters that determines how the interviews list is generated.
+The 2 parameters are: maxInterviewsADay and blockOutDates.
+maxInterviewsADay determines the number of interviews that can be scheduled a day and it is saved in the interviews class
+blockOutDates are the user&#8217;s own block out dates which represent unavailable dates that the user is not free and therefore interviews cannot be scheduled.
+Another thing to note is that weekends are not considered in the scheduled as the user is assumed to have normal working hours from Monday to Friday.</p>
+</div>
+<div class="paragraph">
+<p>Given below is the sequence diagram for generateInterviews:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GenerateInterviewsDiagram.png" alt="GenerateInterviewsDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of generateInterviews:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User launches the application. The blockOutDates field in the interviews class is currently empty.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. User sets the block out dates with the respective command. User does not change the max interviews a day and it it set to a default value.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. User request for interviews to be generated.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:10:25 UTC</div></div></div></body></html>

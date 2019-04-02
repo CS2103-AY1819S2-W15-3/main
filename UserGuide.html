@@ -739,15 +739,39 @@ Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-interview-dates-code-generateinterviews-code-code-coming-in-v1-4-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code-code-coming-in-v1-4-code">3.2.11. Generate Interview Dates : <code>generateInterviews</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">3.2.11. Generate Interview Dates : <code>generateInterviews</code></a></h4>
 <div class="paragraph">
-<p>Generate interview dates for applicants in the Job Hiring Process&#8217;s "Interview" list
-sends the applicants their respective interview timings to the email they provided.<br>
-Format : <code>arrangeInterviews JOBNAME</code></p>
+<p>Generate interview dates for applicants in slaveFinder().
+Interview dates cannot be generated again if they are already present.
+Format : <code>generateInterviews</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code">3.2.12. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">3.2.12. Clear Interview Dates : <code>clearInterviews</code></a></h4>
+<div class="paragraph">
+<p>Clears the list of generated interview dates.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">3.2.13. Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
+<div class="paragraph">
+<p>Sets the maximum number of interviews to be generated in a day.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">3.2.14. Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
+<div class="paragraph">
+<p>Sets the block out dates(unavailable dates) which the interviewer is not available for interviews to be scheduled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">3.2.15. Show interviews dates : <code>showInterviews</code></a></h4>
+<div class="paragraph">
+<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code">3.2.16. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Generate <code>report.txt</code> to show 3 categories of applicants for a specific role:
 "Applied", "Interview", "To be sent to boss". in a Job Hiring Process.<br>
@@ -755,7 +779,7 @@ Format : <code>report JOBNAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-the-job-hiring-process-code-deletejob-code-code-coming-in-v1-4-code"><a class="link" href="#delete-the-job-hiring-process-code-deletejob-code-code-coming-in-v1-4-code">3.2.13. Delete the Job Hiring Process : <code>deletejob</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="delete-the-job-hiring-process-code-deletejob-code-code-coming-in-v1-4-code"><a class="link" href="#delete-the-job-hiring-process-code-deletejob-code-code-coming-in-v1-4-code">3.2.17. Delete the Job Hiring Process : <code>deletejob</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Delete a Job Hiring Process and all its information<br>
 Format : <code>deletejob JOBNAME</code></p>
@@ -846,4 +870,4 @@ e.g. <code>filter r/Chinese</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:52:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:10:25 UTC</div></div></div></body></html>
