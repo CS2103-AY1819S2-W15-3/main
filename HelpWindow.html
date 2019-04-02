@@ -347,7 +347,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <h4 id="searching-persons-by-personal-information-code-search-code"><a class="link" href="#searching-persons-by-personal-information-code-search-code">3.1.7. Searching persons by personal information: <code>search</code></a></h4>
 <div class="paragraph">
 <p>Search persons whose personal information exactly to the given keywords in the specific fields.<br>
-Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [m/MAJOR]&#8230;&#8203;</code></p>
+Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [m/MAJOR] [gr/GRADE]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -368,6 +368,9 @@ Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE
 <li>
 <p>In whole command, persons matching all fields will be returned (i.e. <code>AND</code> search). e.g. <code>m/CS s/NUS</code> will only return persons who are NUS&#8217;s CS students.</p>
 </li>
+<li>
+<p>For search grade, the parameter should be in well formatt(i.e. 3.42-3.98), then all persons whose grade in this range will be returned.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -385,50 +388,15 @@ Returns people whose major is <code>CS</code></p>
 <p><code>search m/CS s/NUS</code><br>
 Returns any person whose major is <code>CS</code> and school is <code>NUS</code></p>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-tags-base-on-personal-information-code-addtag-code"><a class="link" href="#adding-tags-base-on-personal-information-code-addtag-code">3.1.8. Adding tags base on personal information : <code>addtag</code></a></h4>
-<div class="paragraph">
-<p>Adds tag for people by their personal information.<br>
-Format: <code>addtag TAGNAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/COMPANY] [mo/MOUDLE]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
 <li>
-<p>Adds tag for people at the specified field.</p>
-</li>
-<li>
-<p>The TAGNAME refers to the tag name you want to add to people.</p>
-</li>
-<li>
-<p>Persons matching all keywords will be add tag (i.e. <code>AND</code> search).</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addtag CS m/CS</code>
-Add CS tag for all people whose major is <code>CS</code>.</p>
-</li>
-<li>
-<p><code>addtag Assignment t/friend m/CS</code>
-Add <code>Assignment</code> tag for all people whose major is <code>CS</code> and have tag <code>friend</code>.</p>
+<p><code>search gr/3.0-4.0 1.0-2.0</code><br>
+Returns any person whose grade is in range of 3.0-4.0 or 1.0-2.0.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.1.9. Deleting a person : <code>delete</code></a></h4>
+<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.1.8. Deleting a person : <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -469,7 +437,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.1.10. Selecting a person : <code>select</code></a></h4>
+<h4 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.1.9. Selecting a person : <code>select</code></a></h4>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the displayed person list.<br>
 Format: <code>select INDEX</code></p>
@@ -510,21 +478,21 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.1.11. Clearing all entries : <code>clear</code></a></h4>
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.1.10. Clearing all entries : <code>clear</code></a></h4>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.1.12. Exiting the program : <code>exit</code></a></h4>
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.1.11. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.1.13. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.1.12. Saving the data</a></h4>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -870,4 +838,4 @@ e.g. <code>filter r/Chinese</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:33:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:54:50 UTC</div></div></div></body></html>
