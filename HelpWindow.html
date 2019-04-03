@@ -529,10 +529,10 @@ Format : <code>readAll</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-a-job-hiring-process-code-createjob-code-code-coming-in-v1-4-code"><a class="link" href="#create-a-job-hiring-process-code-createjob-code-code-coming-in-v1-4-code">3.2.2. Create a Job Hiring Process: <code>createjob</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="create-a-job-hiring-process-code-createjob-code"><a class="link" href="#create-a-job-hiring-process-code-createjob-code">3.2.2. Create a Job Hiring Process: <code>createjob</code></a></h4>
 <div class="paragraph">
-<p>Create a Job hiring process with three person lists: "Applied", "Interview", "To be sent to boss".<br>
-Format : <code>createjob JOBNAME</code></p>
+<p>Create a Job hiring process with four person lists: "All Applicants", "KIV", "Interview", "Shortlist".<br>
+Format : <code>createJob jn/JOBNAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -542,13 +542,13 @@ Format : <code>createjob JOBNAME</code></p>
 <p>JOBNAME indicate the job name. For examle: <code>IOS-Developer</code>.</p>
 </li>
 <li>
-<p>All people in the storage who want to apply this job will automatically be added in "Applied" list.</p>
+<p>All people in the storage who want to apply this job will automatically be added in "Applied" list. <code>Coming in v1.4</code></p>
 </li>
 <li>
-<p>All people in "Applied" list will show on the display list after this command.</p>
+<p>All people in "Applied" list will show on the display list after this command. <code>Coming in v1.4</code></p>
 </li>
 <li>
-<p>A label with JOBNAME will show on the display board to indicate the current Job Hiring Process.</p>
+<p>A label with JOBNAME will show on the display board to indicate the current Job Hiring Process. <code>Coming in v1.4</code></p>
 </li>
 </ul>
 </div>
@@ -556,7 +556,78 @@ Format : <code>createjob JOBNAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switch-a-job-hiring-process-code-switchjob-code-code-coming-in-v1-4-code"><a class="link" href="#switch-a-job-hiring-process-code-switchjob-code-code-coming-in-v1-4-code">3.2.3. Switch a Job Hiring Process: <code>switchjob</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="delete-the-job-hiring-process-code-deletejob-code"><a class="link" href="#delete-the-job-hiring-process-code-deletejob-code">3.2.3. Delete the Job Hiring Process : <code>deletejob</code></a></h4>
+<div class="paragraph">
+<p>Delete a Job Hiring Process and all its information<br>
+Format : <code>deleteJob jn/JOBNAME</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-all-shown-persons-to-a-job-code-addall-code"><a class="link" href="#add-all-shown-persons-to-a-job-code-addall-code">3.2.4. Add all shown persons to a job : <code>addAll</code></a></h4>
+<div class="paragraph">
+<p>Adds all currently shown people to the "All Applicants" list of a job<br>
+Format : <code>addAll jn/JOBNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Search function can be used to filter those who applied for the job before using this command</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-specific-person-to-job-using-nric-code-addpersontojob-code"><a class="link" href="#add-a-specific-person-to-job-using-nric-code-addpersontojob-code">3.2.5. Add a specific person to Job using NRIC : <code>addPersonToJob</code></a></h4>
+<div class="paragraph">
+<p>Adds person with NRIC to "All Applicants" list of a job<br>
+Format : <code>addPersonToJob jn/JOBNAME nric/NRIC</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code"><a class="link" href="#displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code">3.2.6. Displays one of the four persons list in a job : <code>DisplayJob</code></a></h4>
+<div class="paragraph">
+<p>Displays LISTNUMBERth list of a Job<br>
+Format : <code>DisplayJob ln/LISTNUMBER jn/JOBNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Displays all four lists at once <code>Coming in v1.4</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="moves-person-of-nric-from-one-list-to-another-in-a-job-code-moveperson-code"><a class="link" href="#moves-person-of-nric-from-one-list-to-another-in-a-job-code-moveperson-code">3.2.7. Moves person of NRIC from one list to another in a Job: <code>movePerson</code></a></h4>
+<div class="paragraph">
+<p>Moves a person of NRIC from list "from" to list "to" in a job<br>
+Format : <code>movePerson jn/JOBNAME nric/NRIC ln/FROM ln/TO</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FROM and TO must be 0 to 3 as there are only 4 lists</p>
+</li>
+<li>
+<p>Move a selected few people at a time <code>Coming in v1.4</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switch-a-job-hiring-process-code-switchjob-code-code-coming-in-v1-4-code"><a class="link" href="#switch-a-job-hiring-process-code-switchjob-code-code-coming-in-v1-4-code">3.2.8. Switch a Job Hiring Process: <code>switchjob</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Switch to another Job Hiring Process.<br>
 Format : <code>switchjob JOBNAME</code></p>
@@ -577,7 +648,7 @@ Format : <code>switchjob JOBNAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="filter-search-results-code-filter-code-code-coming-in-v1-4-code"><a class="link" href="#filter-search-results-code-filter-code-code-coming-in-v1-4-code">3.2.4. Filter search results : <code>filter</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="filter-search-results-code-filter-code-code-coming-in-v1-4-code"><a class="link" href="#filter-search-results-code-filter-code-code-coming-in-v1-4-code">3.2.9. Filter search results : <code>filter</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Filter the people displayed on the Person List. Each filer has a name and can be delete, diplay result always base on all filter request.<br>
 Format: <code>filter FILTERNAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
@@ -598,7 +669,7 @@ Format: <code>filter FILTERNAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GEND
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-filter-code-deletefilter-code-code-coming-in-v1-4-code"><a class="link" href="#delete-a-filter-code-deletefilter-code-code-coming-in-v1-4-code">3.2.5. Delete a filter : <code>deletefilter</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="delete-a-filter-code-deletefilter-code-code-coming-in-v1-4-code"><a class="link" href="#delete-a-filter-code-deletefilter-code-code-coming-in-v1-4-code">3.2.10. Delete a filter : <code>deletefilter</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Delete a filter showing on the display board and renew the update display people list.<br>
 Format: <code>deletefilter FILTERNAME1 FILTERNAME2&#8230;&#8203;</code></p>
@@ -619,28 +690,28 @@ Format: <code>deletefilter FILTERNAME1 FILTERNAME2&#8230;&#8203;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-ranked-list-code-rank-code-code-coming-in-v1-4-code"><a class="link" href="#get-ranked-list-code-rank-code-code-coming-in-v1-4-code">3.2.6. Get ranked list : <code>rank</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="get-ranked-list-code-rank-code-code-coming-in-v1-4-code"><a class="link" href="#get-ranked-list-code-rank-code-code-coming-in-v1-4-code">3.2.11. Get ranked list : <code>rank</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Rank the people displayed on the Person List base on their information like Name or Grade. Each rank command has a name and priority and can be delete, diplay result always base on all filter request.<br>
 Format : <code>rank</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-rank-command-code-deleterank-code-code-coming-in-v1-4-code"><a class="link" href="#delete-a-rank-command-code-deleterank-code-code-coming-in-v1-4-code">3.2.7. Delete a rank command : <code>deleterank</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="delete-a-rank-command-code-deleterank-code-code-coming-in-v1-4-code"><a class="link" href="#delete-a-rank-command-code-deleterank-code-code-coming-in-v1-4-code">3.2.12. Delete a rank command : <code>deleterank</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Delete a rank command showing on the display board and renew the update display people list.<br>
 Format: <code>deleterank RANKNAME1 RANKNAME2&#8230;&#8203;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="display-analytics-code-analytics-code-code-coming-in-v1-4-code"><a class="link" href="#display-analytics-code-analytics-code-code-coming-in-v1-4-code">3.2.8. Display Analytics : <code>analytics</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="display-analytics-code-analytics-code-code-coming-in-v1-4-code"><a class="link" href="#display-analytics-code-analytics-code-code-coming-in-v1-4-code">3.2.13. Display Analytics : <code>analytics</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Display the analytics of applicants on a new window
 Format : <code>analytics</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code">3.2.9. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code">3.2.14. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Select people from display board to the Job Hiring Process&#8217;s "Interviewed" list<br>
 Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
@@ -683,7 +754,7 @@ Selects all the people on the Person Display List to the "Interview" list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v1-4-code">3.2.10. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v1-4-code">3.2.15. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Select people from display board to the Job Hiring Process&#8217;s "To be sent to boss" List<br>
 Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
@@ -707,7 +778,7 @@ Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">3.2.11. Generate Interview Dates : <code>generateInterviews</code></a></h4>
+<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">3.2.16. Generate Interview Dates : <code>generateInterviews</code></a></h4>
 <div class="paragraph">
 <p>Generate interview dates for applicants in slaveFinder().
 Interview dates cannot be generated again if they are already present.
@@ -715,42 +786,35 @@ Format : <code>generateInterviews</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">3.2.12. Clear Interview Dates : <code>clearInterviews</code></a></h4>
+<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">3.2.17. Clear Interview Dates : <code>clearInterviews</code></a></h4>
 <div class="paragraph">
 <p>Clears the list of generated interview dates.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">3.2.13. Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
+<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">3.2.18. Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
 <div class="paragraph">
 <p>Sets the maximum number of interviews to be generated in a day.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">3.2.14. Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
+<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">3.2.19. Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
 <div class="paragraph">
 <p>Sets the block out dates(unavailable dates) which the interviewer is not available for interviews to be scheduled.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">3.2.15. Show interviews dates : <code>showInterviews</code></a></h4>
+<h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">3.2.20. Show interviews dates : <code>showInterviews</code></a></h4>
 <div class="paragraph">
 <p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code">3.2.16. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code">3.2.21. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Generate <code>report.txt</code> to show 3 categories of applicants for a specific role:
 "Applied", "Interview", "To be sent to boss". in a Job Hiring Process.<br>
 Format : <code>report JOBNAME</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-the-job-hiring-process-code-deletejob-code-code-coming-in-v1-4-code"><a class="link" href="#delete-the-job-hiring-process-code-deletejob-code-code-coming-in-v1-4-code">3.2.17. Delete the Job Hiring Process : <code>deletejob</code> <code>Coming in v1.4</code></a></h4>
-<div class="paragraph">
-<p>Delete a Job Hiring Process and all its information<br>
-Format : <code>deletejob JOBNAME</code></p>
 </div>
 </div>
 </div>
@@ -835,7 +899,25 @@ e.g. <code>filter r/Chinese</code></p>
 <li>
 <p><strong>Display Analytics</strong> : <code>analytics</code></p>
 </li>
+<li>
+<p><strong>Create Job</strong> : <code>createJob jn/JOBNAME</code></p>
+</li>
+<li>
+<p><strong>Delete Job</strong> : <code>deleteJob jn/JOBNAME</code></p>
+</li>
+<li>
+<p><strong>Add list of people to Job</strong> : <code>addAll jn/JOBNAME</code></p>
+</li>
+<li>
+<p><strong>Add specific person to Job</strong> : <code>addPersonToJob jn/JOBNAME nric/NRIC</code></p>
+</li>
+<li>
+<p><strong>Display selected list in Job</strong> : <code>DisplayJob ln/LISTNUMBER jn/JOBNAME</code></p>
+</li>
+<li>
+<p><strong>Moves person from one list in Job to another</strong> : <code>movePerson jn/JOBNAME nric/NRIC ln/FROM ln/TO</code></p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:54:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-03 05:23:37 UTC</div></div></div></body></html>
