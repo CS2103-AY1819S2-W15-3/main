@@ -26,7 +26,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>slaveFinder() is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, social Circle is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, social Circle can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>slaveFinder() is a resume management software for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, slaveFinder() is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, slaveFinder() can get your resume management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -48,9 +48,20 @@
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
+<img src="images/DisplayJob.png" alt="DisplayJob" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
+</li>
+<li>
+<p>The GUI should start with some data preloaded to allow easier trying out of system</p>
+</li>
+<li>
+<p>Type the command <code>clear</code> to start with an empty addressbook instead.</p>
 </li>
 <li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
@@ -61,13 +72,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>list</code></strong> : lists all applicants and job openings</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>clear</code></strong> : clears the software of all applicants and job openings</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -96,10 +104,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [pj/PASTJOB]</code> can be used as <code>n/John Doe pj/Software-Engineer</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[pj/PASTJOB]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>pj/Software-Engineer</code>, <code>pj/Software-Engineer pj/Web-Developer</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
@@ -119,19 +127,55 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.1.2. Adding a person: <code>add</code></a></h4>
 <div class="paragraph">
+<p>Viet Phone: 86128655 Email: <a href="mailto:pdnm@cp.com">pdnm@cp.com</a> Nric: S0129574R Gender: Male Race: Others Address: 123 Disney School: NUS Major: Computer Science Grade: 5.00 Interview Scores: No Record Past jobs:  Known Programming Languag</p>
+</div>
+<div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL [pj/PAST_JOB]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL gr/GRADE j/JOBS_APPLY</code></p>
 </div>
 <div class="ulist TIP">
 <ul class="TIP">
 <li>
-<p>A person can have any number of tags (including 0)</p>
+<p><code>n/</code>: Name should only contain alphanumeric characters and spaces, and should not be empty.</p>
 </li>
 <li>
-<p>A person can have any number of past jobs (including 0)</p>
+<p><code>a/</code>: Address can take any values, but should not be empty.</p>
 </li>
 <li>
-<p>A person can only have "CS", "ME", "MATH", "ECON", "Computer Science" as their majors (case sensitive)</p>
+<p><code>nric/</code>: NRIC must be unique. It must start with S, followed by exactly 7 numbers, and end with an alpabet in capital letter. It should not be empty.</p>
+</li>
+<li>
+<p><code>p/</code>: Phone numbers should only contain numbers, and it should be at least 3 digits long, and should not be empty.</p>
+</li>
+<li>
+<p><code>e/</code>: Email should be of the format local-part@domain, and should not be empty. "E.g. <a href="mailto:example@gmail.com">example@gmail.com</a>"</p>
+</li>
+<li>
+<p><code>g/</code>: Gender should only be "Female", "Male" or "Others", and should not be empty.</p>
+</li>
+<li>
+<p><code>r/</code>: Race should only be "Chinese", "Malay", "Indian" or "Others", and should not be empty.</p>
+</li>
+<li>
+<p><code>gr/</code>: Grade should only contain positive numbers, and must be in exactly 2 decimal place. E.g. "4.64"</p>
+</li>
+<li>
+<p><code>s/</code>: School can take any values, but should not be empty.</p>
+</li>
+<li>
+<p><code>m/</code>: Major should only contain alphanumeric characters and spaces, and should not be empty.</p>
+</li>
+<li>
+<p><code>j/</code>: Jobs Apply must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It should not be empty. It can take more than 1 value. E.g. "j/Manager j/Sweeper"</p>
+</li>
+<li>
+<p><code>is/</code>: Interview scores field is optional, and must be exactly 5 set of numbers, each seperated by a comma. E.g. "1,2,3,4,5"</p>
+</li>
+<li>
+<p><code>kpl/</code>: Known Programming Language field is optional. It can take any values, and can take more than 1 value. E.g. "kpl/Java kpl/Python"</p>
+</li>
+<li>
+<p><code>pj/</code>: Past jobs field is optional, and past job must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It can take more than 1 value E.g. "pj/Manager pj/Sweeper"</p>
 </li>
 </ul>
 </div>
@@ -141,10 +185,10 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJO
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123 g/Male r/Chinese m/CS s/NUS</code></p>
+<p><code>add n/John p/91757536 nric/S8761230Q e/john@example.com a/123 Disneyland g/Male r/Malay m/Psychology s/NUS gr/4.33 j/Manager</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe g/Polygender p/12345678 t/friend e/betsycrowe@example.com a/Newgate Prison r/Indian p/1234567 t/criminal m/ME s/NTU pj/Hacker</code></p>
+<p><code>add n/Betty p/123 nric/S4444455Y e/betty@bet.com a/321 USS g/Female r/Others m/Life Science s/NTU gr/0.44 j/Helper is/1,2,1,10,5 kpl/Java pj/Chief-Executive-Officer</code></p>
 </li>
 </ul>
 </div>
@@ -152,15 +196,22 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJO
 <div class="sect3">
 <h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.1.3. Listing all persons : <code>list</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all job openings and applicants in the slave system.<br>
 Format: <code>list</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Useful after using filter/displayJob which shows a subset of the list.</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.1.4. Editing a person : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL gr/GRADE j/JOBS_APPLY</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -170,19 +221,10 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/
 <p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>Editting fields that allows more than 1 value will entirely replace the existing values.</p>
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s moudles by typing <code>mo/</code> without specifying any moudles after it.</p>
 </li>
 </ul>
 </div>
@@ -198,8 +240,8 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/
 Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.
+<p><code>edit 2 n/Betsy Crower</code> pj/Manager<br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing past jobs and replace it with 'Manager".
 ==== Listing entered commands : <code>history</code></p>
 </li>
 </ul>
@@ -237,7 +279,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code>, <code>clear</code>, <code>createJob</code>, <code>deleteJob</code>, generateInterviews, setMaxInterviewsADay, setBlockOutDates, clearInterviews, filter, delete filter ).</p>
 </div>
 </td>
 </tr>
@@ -249,21 +291,9 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
+<p><code>edit 1 n/Johnny</code><br>
 <code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<code>undo</code> (reverses the <code>edit 1 n/Johnny</code> command)<br></p>
 </li>
 </ul>
 </div>
@@ -280,26 +310,28 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code>edit 1 n/Johnny</code><br>
+<code>undo</code> (reverses the <code>edit 1 n/Johnny</code> command)<br>
+<code>redo</code> (reapplies the <code>edit 1 n/Johnny</code> command)<br></p>
 </li>
 <li>
-<p><code>delete 1</code><br>
+<p><code>edit 1 n/Johnny</code><br>
 <code>redo</code><br>
 The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
+<p><code>edit 1 n/Johnny</code><br>
 <code>clear</code><br>
 <code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br>
-==== Locating persons by name: <code>find</code></p>
+<code>undo</code> (reverses the <code>edit 1 n/Johnny</code> command)<br>
+<code>redo</code> (reapplies the <code>edit 1 n/Johnny</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.1.7. Locating persons by name: <code>find</code></a></h4>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -339,58 +371,6 @@ Returns <code>john</code> and <code>John Doe</code></p>
 <li>
 <p><code>find Betsy Tim John</code><br>
 Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="searching-persons-by-personal-information-code-search-code"><a class="link" href="#searching-persons-by-personal-information-code-search-code">3.1.7. Searching persons by personal information: <code>search</code></a></h4>
-<div class="paragraph">
-<p>Search persons whose personal information exactly to the given keywords in the specific fields.<br>
-Format: <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [m/MAJOR] [gr/GRADE]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>cs</code> will match <code>CS</code></p>
-</li>
-<li>
-<p>Any personal information is searched.</p>
-</li>
-<li>
-<p>Only full information will be matched e.g. <code>computer</code> will not match <code>Computer Science</code></p>
-</li>
-<li>
-<p>In each field, persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-<li>
-<p>In whole command, persons matching all fields will be returned (i.e. <code>AND</code> search). e.g. <code>m/CS s/NUS</code> will only return persons who are NUS&#8217;s CS students.</p>
-</li>
-<li>
-<p>For search grade, the parameter should be in well formatt(i.e. 3.42-3.98), then all persons whose grade in this range will be returned.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>search m/CS</code><br>
-Returns people whose major is <code>CS</code></p>
-</li>
-<li>
-<p><code>search m/CS s/NUS</code><br>
-Returns any person whose major is <code>CS</code> and school is <code>NUS</code></p>
-</li>
-<li>
-<p><code>search gr/3.0-4.0 1.0-2.0</code><br>
-Returns any person whose grade is in range of 3.0-4.0 or 1.0-2.0.</p>
 </li>
 </ul>
 </div>
@@ -502,17 +482,49 @@ There is no need to save manually.</p>
 <div class="sect2">
 <h3 id="hr-related-features"><a class="link" href="#hr-related-features">3.2. HR Related Features</a></h3>
 <div class="sect3">
-<h4 id="import-resumes-to-slavefinder-code-importresumes-code-code-coming-in-v1-4-code"><a class="link" href="#import-resumes-to-slavefinder-code-importresumes-code-code-coming-in-v1-4-code">3.2.1. Import Resumes to slaveFinder() : <code>importResumes</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="import-resumes-to-slavefinder-code-importresumes-code"><a class="link" href="#import-resumes-to-slavefinder-code-importresumes-code">3.2.1. Import Resumes to slaveFinder() : <code>importResumes</code></a></h4>
 <div class="paragraph">
-<p>Given input resume txt files in placed in the resumes folder, reads all the resumes and saves them into slaveFinder().
-Format : <code>readAll</code></p>
+<p>Given input resume txt files in placed in the specified folder, reads all the resumes and saves them into slaveFinder().
+Format : <code>importResumes path_to_folder</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>All the resume documents should be txt files and strictly follow the format of Company Standard Resume Format.</p>
+<p>All the resume documents should be txt files and strictly follow the below format.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Name
+Phone
+Email
+NRIC
+Gender
+Race
+Address
+School
+Major
+Grade
+Lang,Lang,Lang
+pastJob,pastJob,pastJob
+jobsApply,jobsApply,jobsApply
+interviewScore</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All fields are to be populated, except for Programming Languages, Past Jobs, and Jobs Applied</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For these fields, specify any number of items (zero or more), separated by commas</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>All the resume documents should be stored in one folder.</p>
@@ -527,28 +539,33 @@ Format : <code>readAll</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>importResumes C:\Users\MyName\Desktop\MyResumes</code><br>
+Imports all resumes in the given path</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="create-a-job-hiring-process-code-createjob-code"><a class="link" href="#create-a-job-hiring-process-code-createjob-code">3.2.2. Create a Job Hiring Process: <code>createjob</code></a></h4>
 <div class="paragraph">
-<p>Create a Job hiring process with four person lists: "All Applicants", "KIV", "Interview", "Shortlist".<br>
-Format : <code>createJob jn/JOBNAME</code></p>
+<p>Create a Job hiring process with four person lists: "Applicants", "KIV", "Interview", "Shortlist".<br>
+Format : <code>createJob [jn/JOBNAME]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>JOBNAME indicate the job name. For examle: <code>IOS-Developer</code>.</p>
+<p>JOBNAME indicate the job name. This name cannot contain spaces. Names with multiple words are separated by '-'. For example: <code>IOS-Developer</code>.</p>
 </li>
 <li>
-<p>All people in the storage who want to apply this job will automatically be added in "Applied" list. <code>Coming in v1.4</code></p>
-</li>
-<li>
-<p>All people in "Applied" list will show on the display list after this command. <code>Coming in v1.4</code></p>
-</li>
-<li>
-<p>A label with JOBNAME will show on the display board to indicate the current Job Hiring Process. <code>Coming in v1.4</code></p>
+<p>All people in the storage who want to apply this job will automatically be added in "Applied" list.</p>
 </li>
 </ul>
 </div>
@@ -559,21 +576,21 @@ Format : <code>createJob jn/JOBNAME</code></p>
 <h4 id="delete-the-job-hiring-process-code-deletejob-code"><a class="link" href="#delete-the-job-hiring-process-code-deletejob-code">3.2.3. Delete the Job Hiring Process : <code>deletejob</code></a></h4>
 <div class="paragraph">
 <p>Delete a Job Hiring Process and all its information<br>
-Format : <code>deleteJob jn/JOBNAME</code></p>
+Format : <code>deleteJob [jn/JOBNAME]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-all-shown-persons-to-a-job-code-addall-code"><a class="link" href="#add-all-shown-persons-to-a-job-code-addall-code">3.2.4. Add all shown persons to a job : <code>addAll</code></a></h4>
+<h4 id="displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code"><a class="link" href="#displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code">3.2.4. Displays one of the four persons list in a job : <code>DisplayJob</code></a></h4>
 <div class="paragraph">
-<p>Adds all currently shown people to the "All Applicants" list of a job<br>
-Format : <code>addAll jn/JOBNAME</code></p>
+<p>Displays  a Job<br>
+Format : <code>displayJob  [jn/JOBNAME]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Search function can be used to filter those who applied for the job before using this command</p>
+<p>Displays all four lists of a job at once</p>
 </li>
 </ul>
 </div>
@@ -581,82 +598,124 @@ Format : <code>addAll jn/JOBNAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-specific-person-to-job-using-nric-code-addpersontojob-code"><a class="link" href="#add-a-specific-person-to-job-using-nric-code-addpersontojob-code">3.2.5. Add a specific person to Job using NRIC : <code>addPersonToJob</code></a></h4>
+<h4 id="add-all-shown-persons-in-a-list-to-another-list-code-addall-code"><a class="link" href="#add-all-shown-persons-in-a-list-to-another-list-code-addall-code">3.2.5. Add all shown persons in a list to another list : <code>addAll</code></a></h4>
 <div class="paragraph">
-<p>Adds person with NRIC to "All Applicants" list of a job<br>
-Format : <code>addPersonToJob jn/JOBNAME nric/NRIC</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code"><a class="link" href="#displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code">3.2.6. Displays one of the four persons list in a job : <code>DisplayJob</code></a></h4>
-<div class="paragraph">
-<p>Displays LISTNUMBERth list of a Job<br>
-Format : <code>DisplayJob ln/LISTNUMBER jn/JOBNAME</code></p>
+<p>Adds all currently shown people in source list to the destination list<br>
+Format : <code>addAll TO FROM(Optional) [jn/JOBNAME](Optional)</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Displays all four lists at once <code>Coming in v1.4</code></p>
+<p>Filter function can be used to modify the displayed list before moving the people in the list</p>
+</li>
+<li>
+<p><code>FROM</code> input is optional and if not given, input list will be the displayed list of the entire directory.</p>
+</li>
+<li>
+<p><code>JOBNAME</code> input is optional if there is a currently displayed job. If provided, both source and destination will be of the provided job.</p>
+</li>
+<li>
+<p><code>FORM</code> and <code>TO</code> can only be one of the following <code>applied, kiv, interview, shortlist</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>createJob jn/Lecturer</code><br></p>
+</li>
+<li>
+<p><code>addAll applied jn/Lecturer</code><br>
+addAll adds all in database to Lecturer Job</p>
+</li>
+<li>
+<p><code>addAll kiv applied jn/Lecturer</code><br>
+addAll adds all in applied list to kiv list in lecturer</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="moves-person-of-nric-from-one-list-to-another-in-a-job-code-moveperson-code"><a class="link" href="#moves-person-of-nric-from-one-list-to-another-in-a-job-code-moveperson-code">3.2.7. Moves person of NRIC from one list to another in a Job: <code>movePerson</code></a></h4>
-<div class="paragraph">
-<p>Moves a person of NRIC from list "from" to list "to" in a job<br>
-Format : <code>movePerson jn/JOBNAME nric/NRIC ln/FROM ln/TO</code></p>
+<h4 id="adds-people-using-by-index-to-a-selected-list-in-a-job-code-movepeople-code"><a class="link" href="#adds-people-using-by-index-to-a-selected-list-in-a-job-code-movepeople-code">3.2.6. Adds people using by index to a selected list in a Job : <code>movePeople</code></a></h4>
+<div class="literalblock">
+<div class="content">
+<pre> Moves a few people specified by index from a specified list to another list in a job.+
+Format : `movePeople TO FROM INDEXES [jn/JOBNAME]`</pre>
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>FROM and TO must be 0 to 3 as there are only 4 lists</p>
+<p><code>FROM</code> input is optional and if not given, input list will be the displayed list of the entire directory.</p>
 </li>
 <li>
-<p>Move a selected few people at a time <code>Coming in v1.4</code></p>
+<p><code>JOBNAME</code> input is required only if there isn&#8217;t a displayed job. Should be omitted otherwise.</p>
+</li>
+<li>
+<p><code>FORM</code> and <code>TO</code> can only be one of the following <code>applied, kiv, interview, shortlist</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="switch-a-job-hiring-process-code-switchjob-code-code-coming-in-v1-4-code"><a class="link" href="#switch-a-job-hiring-process-code-switchjob-code-code-coming-in-v1-4-code">3.2.8. Switch a Job Hiring Process: <code>switchjob</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
-<p>Switch to another Job Hiring Process.<br>
-Format : <code>switchjob JOBNAME</code></p>
+<p>Examples:</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>All people in "Applied" list in the new Job Hiring Process will show on the display list after this command.</p>
+<p><code>list</code><br>
+<code>createJob jn/Lecturer</code><br></p>
 </li>
 <li>
-<p>JOBNAME label will change after this command.</p>
+<p><code>movePeople applied 1, 2 jn/Lecturer</code><br>
+moves persons with index 1 and 2 to applied list in Lecturer</p>
+</li>
+<li>
+<p><code>displayJob jn/Lecturer</code></p>
+</li>
+<li>
+<p><code>movePeople kiv applied 2</code><br>
+moves person 2 in applied list to kiv list in Lecturer</p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="filter-search-results-code-filter-code-code-coming-in-v1-4-code"><a class="link" href="#filter-search-results-code-filter-code-code-coming-in-v1-4-code">3.2.9. Filter search results : <code>filter</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="filter-results-code-filter-code"><a class="link" href="#filter-results-code-filter-code">3.2.7. Filter results : <code>filter</code></a></h4>
 <div class="paragraph">
 <p>Filter the people displayed on the Person List. Each filer has a name and can be delete, diplay result always base on all filter request.<br>
-Format: <code>filter FILTERNAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>filter [FILTERLISTNAME] fn/FILTERNAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
+<li>
+<p>Filter have two mode, when Screen is All JOb Showing Screen (Jobs Open List shows), FILTERLISTNAME should be empty.</p>
+</li>
+<li>
+<p>When Screen is Job Detail Screen (4 job lists shows), FILTERLISTNAME is needed.</p>
+</li>
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will used.</p>
+</li>
+<li>
+<p>FILTERLISTNAME can be full name of the job lists such as "Applicant", "KIV", "Interview", "Shortlist".</p>
+</li>
+<li>
+<p>FILTERLISTNAME also can be prefix of the job lists such as "a", "k", "i", "s".</p>
+</li>
 <li>
 <p>Multiple filters can be added to filter people. All the filter labels will show on the display board.</p>
 </li>
@@ -667,12 +726,23 @@ Format: <code>filter FILTERNAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GEND
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter fn/nus s/nus</code><br>
+Shows all persons whose school is NUS.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-filter-code-deletefilter-code-code-coming-in-v1-4-code"><a class="link" href="#delete-a-filter-code-deletefilter-code-code-coming-in-v1-4-code">3.2.10. Delete a filter : <code>deletefilter</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="delete-a-filter-code-deletefilter-code"><a class="link" href="#delete-a-filter-code-deletefilter-code">3.2.8. Delete a filter : <code>deleteFilter</code></a></h4>
 <div class="paragraph">
 <p>Delete a filter showing on the display board and renew the update display people list.<br>
-Format: <code>deletefilter FILTERNAME1 FILTERNAME2&#8230;&#8203;</code></p>
+Format: <code>deleteFilter FILTERNAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -688,30 +758,70 @@ Format: <code>deletefilter FILTERNAME1 FILTERNAME2&#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="get-ranked-list-code-rank-code-code-coming-in-v1-4-code"><a class="link" href="#get-ranked-list-code-rank-code-code-coming-in-v1-4-code">3.2.11. Get ranked list : <code>rank</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
-<p>Rank the people displayed on the Person List base on their information like Name or Grade. Each rank command has a name and priority and can be delete, diplay result always base on all filter request.<br>
-Format : <code>rank</code></p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter fn/nus s/nus</code><br>
+Shows all persons whose school is NUS.</p>
+</li>
+<li>
+<p><code>deleteFilter nus</code>
+Shows all persons.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-rank-command-code-deleterank-code-code-coming-in-v1-4-code"><a class="link" href="#delete-a-rank-command-code-deleterank-code-code-coming-in-v1-4-code">3.2.12. Delete a rank command : <code>deleterank</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="display-analytics-code-analytics-code"><a class="link" href="#display-analytics-code-analytics-code">3.2.9. Display Analytics : <code>analytics</code></a></h4>
 <div class="paragraph">
-<p>Delete a rank command showing on the display board and renew the update display people list.<br>
-Format: <code>deleterank RANKNAME1 RANKNAME2&#8230;&#8203;</code></p>
+<p>Display the analytics of applicants for desired job list (applicant, kiv, interview, shortlist) or all applicants
+Format : <code>analytics LISTNAME</code> or  <code>analytics</code> (for all applicants)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>LISTNAME indicate which Job list this command will be used.</p>
+</li>
+<li>
+<p>LISTNAME can are the names of job lists such as "applicant", "kiv", "interview", "shortlist".</p>
+</li>
+<li>
+<p>If no LISTNAME is entered, the analytis of all applicants in the slave system will be shown.</p>
+</li>
+<li>
+<p>If have never used the <code>DisplayJob</code> command before, using <code>analytics LISTNAME</code> will be empty analytics.</p>
+</li>
+<li>
+<p>If on all applicants and all jobs page, <code>analytics LISTNAME</code> will display analytics on the job last displayed using command <code>DisplayJob</code></p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="display-analytics-code-analytics-code-code-coming-in-v1-4-code"><a class="link" href="#display-analytics-code-analytics-code-code-coming-in-v1-4-code">3.2.13. Display Analytics : <code>analytics</code> <code>Coming in v1.4</code></a></h4>
+</div>
 <div class="paragraph">
-<p>Display the analytics of applicants on a new window
-Format : <code>analytics</code></p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>analytics applicant</code></p>
+</li>
+<li>
+<p><code>analytics kiv</code></p>
+</li>
+<li>
+<p><code>analytics</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code">3.2.14. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v1-4-code">3.2.10. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v1.4</code></a></h4>
 <div class="paragraph">
 <p>Select people from display board to the Job Hiring Process&#8217;s "Interviewed" list<br>
 Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
@@ -754,7 +864,7 @@ Selects all the people on the Person Display List to the "Interview" list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v1-4-code"><a class="link" href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v1-4-code">3.2.15. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code"><a class="link" href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code">3.2.11. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Select people from display board to the Job Hiring Process&#8217;s "To be sent to boss" List<br>
 Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
@@ -778,39 +888,40 @@ Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">3.2.16. Generate Interview Dates : <code>generateInterviews</code></a></h4>
+<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">3.2.12. Generate Interview Dates : <code>generateInterviews</code></a></h4>
 <div class="paragraph">
 <p>Generate interview dates for applicants in slaveFinder().
 Interview dates cannot be generated again if they are already present.
+Dates generated exclude weekends and block out dates(see below).
 Format : <code>generateInterviews</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">3.2.17. Clear Interview Dates : <code>clearInterviews</code></a></h4>
+<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">3.2.13. Clear Interview Dates : <code>clearInterviews</code></a></h4>
 <div class="paragraph">
 <p>Clears the list of generated interview dates.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">3.2.18. Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
+<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">3.2.14. Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
 <div class="paragraph">
 <p>Sets the maximum number of interviews to be generated in a day.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">3.2.19. Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
+<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">3.2.15. Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
 <div class="paragraph">
 <p>Sets the block out dates(unavailable dates) which the interviewer is not available for interviews to be scheduled.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">3.2.20. Show interviews dates : <code>showInterviews</code></a></h4>
+<h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">3.2.16. Show interviews dates : <code>showInterviews</code></a></h4>
 <div class="paragraph">
 <p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v1-4-code">3.2.21. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v1.4</code></a></h4>
+<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code">3.2.17. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Generate <code>report.txt</code> to show 3 categories of applicants for a specific role:
 "Applied", "Interview", "To be sent to boss". in a Job Hiring Process.<br>
@@ -835,8 +946,8 @@ Format : <code>report JOBNAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL [pj/PAST_JOB]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL [pj/PAST_JOB]&#8230;&#8203; `<br>
+e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665
 g/Male r/Chinese m/MATH s/NUS pj/Professor t/friend t/colleague</code></p>
 </li>
 <li>
@@ -848,8 +959,8 @@ e.g. <code>delete 3</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
-[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] `<br>
+e.g. `edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -857,8 +968,8 @@ e.g. <code>find James Jake</code></p>
 </li>
 <li>
 <p><strong>Search</strong> : <code>search [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
-[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>search s/NUS</code></p>
+[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] `<br>
+e.g. `search s/NUS</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -890,34 +1001,31 @@ e.g.<code>select 2</code></p>
 </li>
 <li>
 <p><strong>Filter search results</strong> : <code>filter [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
-[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>filter r/Chinese</code></p>
+[g/GENDER] [r/RACE] [s/SCHOOL] [pj/PAST_JOBS] `<br>
+e.g. `filter r/Chinese</code></p>
 </li>
 <li>
 <p><strong>Display Hiring Process</strong> : <code>displayProcess</code></p>
 </li>
 <li>
-<p><strong>Display Analytics</strong> : <code>analytics</code></p>
+<p><strong>Display Analytics</strong> : <code>analytics LISTNAME</code> or <code>analytics</code></p>
 </li>
 <li>
-<p><strong>Create Job</strong> : <code>createJob jn/JOBNAME</code></p>
+<p><strong>Create Job</strong> : <code>createJob [jn/JOBNAME]</code></p>
 </li>
 <li>
-<p><strong>Delete Job</strong> : <code>deleteJob jn/JOBNAME</code></p>
+<p><strong>Delete Job</strong> : <code>deleteJob [jn/JOBNAME]</code></p>
 </li>
 <li>
-<p><strong>Add list of people to Job</strong> : <code>addAll jn/JOBNAME</code></p>
+<p><strong>Display Job</strong> : <code>displayJob [jn/JOBNAME]</code></p>
 </li>
 <li>
-<p><strong>Add specific person to Job</strong> : <code>addPersonToJob jn/JOBNAME nric/NRIC</code></p>
+<p><strong>Add All</strong> : <code>addAll TO FROM(OPTIONAL) [jn/JOBNAME](OPTIONAL)</code></p>
 </li>
 <li>
-<p><strong>Display selected list in Job</strong> : <code>DisplayJob ln/LISTNUMBER jn/JOBNAME</code></p>
-</li>
-<li>
-<p><strong>Moves person from one list in Job to another</strong> : <code>movePerson jn/JOBNAME nric/NRIC ln/FROM ln/TO</code></p>
+<p><strong>Move People</strong> : <code>movePeople TO FROM(OPTIONAL) INDEXES [jn/JOBNAME](ONLY ON DEFAULT SCREEN)</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-08 06:56:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 15:32:23 UTC</div></div></div></body></html>
