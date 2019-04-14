@@ -229,10 +229,46 @@ Format : <code>analytics LISTNAME</code> or  <code>analytics</code> (for all app
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>slaveFinder() is a resume management application that helps recruiters manage most of the hiring process.<br>
+The application is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, slaveFinder() can get your resume management tasks done faster than traditional GUI apps.<br>
+Interested? Jump to the <a href="#Quick Start">[Quick Start]</a> to get started or <a href="#Command Summary">[Command Summary]</a> for the list of commands. Enjoy!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some example commands you can try:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>add</strong> n/John p/91757536 nric/S8761230Q e/john@example.com a/123 Disneyland g/Male r/Malay m/Psychology s/NUS gr/4.33 j/Manager</code>: adds a person named <code>John</code> to all applicants database.</p>
+</li>
+<li>
+<p><code><strong>createJob</strong> jn/Manager</code>: creates new job opening <code>Manager</code>.</p>
+</li>
+<li>
+<p><code><strong>addAll</strong> a jn/Manager</code> : adds all applicants in the database to the <code>applicants</code> list of job <code>Manager</code>.</p>
+</li>
+<li>
+<p><code><strong>displayJob</strong> jn/Manager</code>: displays the selection process for job opening <code>Manager</code></p>
+</li>
+<li>
+<p><code><strong>list</strong></code> : Goes back to the list of all applicants and job openings.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 <div class="sect3">
 <h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">Adding a person: <code>add</code></a></h4>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
+<p>Adds a person to slaveFinder()<br>
 Format: <code>add n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL gr/GRADE j/JOBS_APPLY</code></p>
 </div>
 <div class="sidebarblock">
@@ -240,46 +276,46 @@ Format: <code>add n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/R
 <div class="ulist TIP">
 <ul class="TIP">
 <li>
-<p><code>n/</code>: Name should only contain alphanumeric characters and spaces, and should not be empty.</p>
+<p><code>n/</code>: <strong>Name</strong> should only contain alphanumeric characters and spaces, and should not be empty.</p>
 </li>
 <li>
-<p><code>a/</code>: Address can take any values, but should not be empty.</p>
+<p><code>a/</code>: <strong>Address</strong> can take any values, but should not be empty.</p>
 </li>
 <li>
 <p><code>nric/</code>: NRIC must be unique. It must start with S, followed by exactly 7 numbers, and end with an alpabet in capital letter. It should not be empty.</p>
 </li>
 <li>
-<p><code>p/</code>: Phone numbers should only contain numbers, and it should be at least 3 digits long, and should not be empty.</p>
+<p><code>p/</code>: <strong>Phone</strong> numbers should only contain numbers, and it should be at least 3 digits long, and should not be empty.</p>
 </li>
 <li>
-<p><code>e/</code>: Email should be of the format local-part@domain, and should not be empty. "E.g. <a href="mailto:example@gmail.com">example@gmail.com</a>"</p>
+<p><code>e/</code>: <strong>Email</strong> should be of the format local-part@domain, and should not be empty. "E.g. <a href="mailto:example@gmail.com">example@gmail.com</a>"</p>
 </li>
 <li>
-<p><code>g/</code>: Gender should only be "Female", "Male" or "Others", and should not be empty.</p>
+<p><code>g/</code>: <strong>Gender</strong> should only be "Female", "Male" or "Others", and should not be empty.</p>
 </li>
 <li>
-<p><code>r/</code>: Race should only be "Chinese", "Malay", "Indian" or "Others", and should not be empty.</p>
+<p><code>r/</code>: <strong>Race</strong> should only be "Chinese", "Malay", "Indian" or "Others", and should not be empty.</p>
 </li>
 <li>
-<p><code>gr/</code>: Grade should only contain positive numbers, and must be in exactly 2 decimal place. E.g. "4.64"</p>
+<p><code>gr/</code>: <strong>Grade</strong> should only contain positive numbers, and must be in exactly 2 decimal place. E.g. "4.64"</p>
 </li>
 <li>
-<p><code>s/</code>: School can take any values, but should not be empty.</p>
+<p><code>s/</code>: <strong>School</strong> can take any values, but should not be empty.</p>
 </li>
 <li>
-<p><code>m/</code>: Major should only contain alphanumeric characters and spaces, and should not be empty.</p>
+<p><code>m/</code>: <strong>Major</strong> should only contain alphanumeric characters and spaces, and should not be empty.</p>
 </li>
 <li>
-<p><code>j/</code>: Jobs Apply must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It should not be empty. It can take more than 1 value. E.g. "j/Manager j/Sweeper"</p>
+<p><code>j/</code>: <strong>Jobs Apply</strong> must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It should not be empty. It can take more than 1 value. E.g. "j/Manager j/Sweeper"</p>
 </li>
 <li>
-<p><code>is/</code>: Interview scores field is optional, and must be exactly 5 set of numbers, each seperated by a comma. E.g. "1,2,3,4,5"</p>
+<p><code>is/</code>: <strong>Interview scores</strong> field is optional, and must be exactly 5 set of numbers, each seperated by a comma. E.g. "1,2,3,4,5"</p>
 </li>
 <li>
-<p><code>kpl/</code>: Known Programming Language field is optional. It can take any values, and can take more than 1 value. E.g. "kpl/Java kpl/Python"</p>
+<p><code>kpl/</code>: <strong>Known Programming Language</strong> field is optional. It can take any values, and can take more than 1 value. E.g. "kpl/Java kpl/Python"</p>
 </li>
 <li>
-<p><code>pj/</code>: Past jobs field is optional, and past job must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It can take more than 1 value E.g. "pj/Manager pj/Sweeper"</p>
+<p><code>pj/</code>: <strong>Past jobs</strong> field is optional, and past job must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It can take more than 1 value E.g. "pj/Manager pj/Sweeper"</p>
 </li>
 </ul>
 </div>
@@ -295,6 +331,110 @@ Format: <code>add n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/R
 </li>
 <li>
 <p><code>add n/Betty p/123 nric/S4444455Y e/betty@bet.com a/321 USS g/Female r/Others m/Life Science s/NTU gr/0.44 j/Helper is/1,2,1,10,5 kpl/Java pj/Chief-Executive-Officer</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h4>
+<div class="paragraph">
+<p>Restores slaveFinder() to the state before the previous <em>undoable</em> command was executed.<br>
+Format: <code>undo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify slaveFinder()'s content (<code>add</code>, <code>delete</code>, <code>edit</code>, <code>clear</code>, <code>createJob</code>, <code>deleteJob</code>, <code>generateInterviews</code>, <code>setMaxInterviewsADay</code>, <code>setBlockOutDates</code>, <code>clearInterviews</code>, <code>filter</code>, <code>deleteFilter</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 n/Johnny</code><br>
+<code>list</code><br>
+<code>undo</code> (reverses the <code>edit 1 n/Johnny</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h4>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 n/Johnny</code><br>
+<code>undo</code> (reverses the <code>edit 1 n/Johnny</code> command)<br>
+<code>redo</code> (reapplies the <code>edit 1 n/Johnny</code> command)<br></p>
+</li>
+<li>
+<p><code>edit 1 n/Johnny</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>edit 1 n/Johnny</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>edit 1 n/Johnny</code> command)<br>
+<code>redo</code> (reapplies the <code>edit 1 n/Johnny</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">Editing a person : <code>edit</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing person in slaveFinder().<br>
+Format: <code>edit INDEX n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL gr/GRADE j/JOBS_APPLY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Editting fields that allows more than 1 value will entirely replace the existing values.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 2 n/Betsy Crower</code> pj/Manager<br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing past jobs and replace it with 'Manager".</p>
 </li>
 </ul>
 </div>
@@ -389,4 +529,4 @@ Format: <code>add n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/R
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 20:23:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 21:02:35 UTC</div></div></div></body></html>
