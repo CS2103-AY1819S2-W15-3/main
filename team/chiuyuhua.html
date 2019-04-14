@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Wee Soo Jun - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chiu Yu Hua - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W15-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Wee Soo Jun - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W15-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chiu Yu Hua - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-slavefinder"><a class="link" href="#project-slavefinder">PROJECT: slaveFinder()</a></h2>
 <div class="sectionbody">
 <hr>
@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>slaveFinder() is a desktop address book application used for people in the HR department of a company to help them filter people and schedule interviews. It also helps with analytics of the hiring process in the company.</p>
+<p>slaveFinder() is a resume management application that helps recruiters manage most of the hiring process. It allows recruiters to easily look for quality job applicants through convenient filtering of resumes' various fields, and sort these applicants into different parts of the selection process. Other features include automated scheduling of interviews based on recruiter&#8217;s availability and analytics of job applicants.</p>
 </div>
 </div>
 </div>
@@ -20,53 +20,132 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>Interview scheduling</strong></p>
+<p><strong>Major enhancement 1</strong>: added <strong>Analytics</strong> feature end-to-end</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to schedule interviews with block out dates.</p>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Consolidates and breaksdown the various fields data of applicants, such as gender breakdown, number of applicants in each school, number of applicants in each major and average grade.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can improve his/her productivity as the app can take over the task of scheduling to the app.</p>
-</li>
-<li>
-<p>Highlights:</p>
-</li>
-<li>
-<p>Credits:</p>
+<p>Analytics can be done on specific lists in the selection process, such as only on applicants that were interviewed or selected for the job. <code>analytics applicant</code>, <code>analytics kiv</code>, <code>analytics interview</code>, <code>analytics shortlist</code>, <code>analytics</code></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Added a school field which helped in the ranking and filtering of individuals for interviews</p>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Recruiters often want to know the quality of applicants that apply to their company, and use this data to improve their hiring process or recruit marketing strategies.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>:</p>
+<p>Furthermore, many companies are concerned about diviersity in their team. Such analytics can inform them if they are getting (or selecting) a sufficiently diversed pool of applicants.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Highlights: In addition to processing the various fields data in corresponding lists, analytics data is presented in a visually intuitive manner consisting of different charts to suit the nature of the person field.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/analytics.png" alt="analytics" width="790">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement 2</strong>: restructured the original AB4 UI code to suit the context of slaveFinder(), and provide UI component for various commands added by other team members.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Consist of two scenes: First scene shows 2 panels consisting of a list of all applicants and a list of all job openings. Second scene shows 4 panels, each representing a specific part in the hiring process for a specific job opening: "Applicants, KIV, Interviewed, Shortlist".</p>
+</li>
+<li>
+<p>Filtering of applicants through field data is also shown visually on software, where filtered keywords are "stored" (and removed when needed) above the corresponding lists.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: Being able to filter applicants and sort them according to the selection process is the core value add of our software, and hence essential to be visually represented and for user to interact with each list accordingly.</p>
+</li>
+<li>
+<p>Highlights: Enable UI for the following commands:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DisplayJob</code>: Switch UI scene to show 4 panels for specific job</p>
+</li>
+<li>
+<p><code>list</code>: Switch UI scene to show all applicants and all job openings</p>
+</li>
+<li>
+<p><code>filter</code>: Filter keywords stored above corresponding lists</p>
+</li>
+<li>
+<p><code>deleteFilter</code> &amp; <code>clearFilter</code>: remove filter keywords stored above corresponding lists</p>
+</li>
+<li>
+<p><code>movePerson</code>, <code>addPerson</code>: allows Person to be moved and displayed at various list on the <code>applicantsPanel</code>, <code>kivPanel</code>, <code>interviewPanel</code>, <code>shortListPanel</code></p>
+</li>
+<li>
+<p><code>createJob</code>: allows new job to be added as a <code>JobCard</code> on the <code>JobsPanel</code></p>
+</li>
+<li>
+<p><code>analytics</code>: new window that displays analytics data on different charts.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added Person Fields: Gender, Race, NRIC, Grade, InterviewScores, JobApply, as required by resumes of job applicants (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/85">#85</a>)</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Make person field <code>NRIC</code> the unique identifier of <code>Person</code> and create <code>UniqueNRICMap</code> to allow convenient obtaining of <code>Person</code> via NRIC. (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/85">#85</a>)</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Enhance <code>list</code> command to list both jobs and persons. (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/200">#200</a>)</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=chiuyuhua">Functional and Tests</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed release <code>v1.3</code> on GitHub</p>
+<p>Updated the GUI color scheme (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/200">#200</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests to increase coverage by 4% (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/247">#247</a>, (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/85">#85</a>)</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
 </li>
 <li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated Model Component image of slaveFinder()</p>
+<p>Update the UI component class diagram and Sequence Diagram in DG and enhance existing contents in UG. (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/256">#256</a>, <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/238">#238</a>, <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/239">#239</a>, <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/201">#201</a>, <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/110">#110</a>)</p>
 </li>
 </ul>
 </div>
@@ -76,17 +155,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/44">#44</a></p>
-</li>
-</ul>
-</div>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/84">#84</a> <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/124">#124</a></p>
 </li>
 <li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated TravisCI, Appveyor, Codacy, and Coveralls to team repo</p>
+<p>Reported bugs and suggestions for other teams in class (<a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/589">1</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/693">2</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/555">3</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/431">4</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/114">5</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/230">6</a>)</p>
 </li>
 </ul>
 </div>
@@ -112,36 +184,119 @@
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="generate-interview-dates-code-generateinterviews-code"><a class="link" href="#generate-interview-dates-code-generateinterviews-code">Generate Interview Dates : <code>generateInterviews</code></a></h4>
+<h4 id="display-analytics-code-analytics-code"><a class="link" href="#display-analytics-code-analytics-code">Display Analytics : <code>analytics</code></a></h4>
 <div class="paragraph">
-<p>Generate interview dates for applicants in slaveFinder().
-Interview dates cannot be generated again if they are already present.
-Dates generated exclude weekends and block out dates(see below).
-Format : <code>generateInterviews</code></p>
+<p>Display the analytics of applicants for desired job list (applicant, kiv, interview, shortlist) or all applicants.<br>
+Format : <code>analytics LISTNAME</code> or  <code>analytics</code> (for all applicants)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>LISTNAME indicate which Job list this command will be used.</p>
+</li>
+<li>
+<p>LISTNAME can are the names of job lists such as "applicant", "kiv", "interview", "shortlist".</p>
+</li>
+<li>
+<p>If no LISTNAME is entered, the analytis of all applicants in the slave system will be shown.</p>
+</li>
+<li>
+<p>If have never used the <code>DisplayJob</code> command before, using <code>analytics LISTNAME</code> will be empty analytics.</p>
+</li>
+<li>
+<p>If on all applicants and all jobs page, <code>analytics LISTNAME</code> will display analytics on the job last displayed using command <code>DisplayJob</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>analytics applicant</code></p>
+</li>
+<li>
+<p><code>analytics kiv</code></p>
+</li>
+<li>
+<p><code>analytics</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clear-interview-dates-code-clearinterviews-code"><a class="link" href="#clear-interview-dates-code-clearinterviews-code">Clear Interview Dates : <code>clearInterviews</code></a></h4>
+<h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">Adding a person: <code>add</code></a></h4>
 <div class="paragraph">
-<p>Clears the list of generated interview dates.</p>
+<p>Adds a person to the address book<br>
+Format: <code>add n/NAME p/PHONE_NUMBER nric/NRIC e/EMAIL a/ADDRESS g/GENDER r/RACE m/MAJOR s/SCHOOL gr/GRADE j/JOBS_APPLY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist TIP">
+<ul class="TIP">
+<li>
+<p><code>n/</code>: Name should only contain alphanumeric characters and spaces, and should not be empty.</p>
+</li>
+<li>
+<p><code>a/</code>: Address can take any values, but should not be empty.</p>
+</li>
+<li>
+<p><code>nric/</code>: NRIC must be unique. It must start with S, followed by exactly 7 numbers, and end with an alpabet in capital letter. It should not be empty.</p>
+</li>
+<li>
+<p><code>p/</code>: Phone numbers should only contain numbers, and it should be at least 3 digits long, and should not be empty.</p>
+</li>
+<li>
+<p><code>e/</code>: Email should be of the format local-part@domain, and should not be empty. "E.g. <a href="mailto:example@gmail.com">example@gmail.com</a>"</p>
+</li>
+<li>
+<p><code>g/</code>: Gender should only be "Female", "Male" or "Others", and should not be empty.</p>
+</li>
+<li>
+<p><code>r/</code>: Race should only be "Chinese", "Malay", "Indian" or "Others", and should not be empty.</p>
+</li>
+<li>
+<p><code>gr/</code>: Grade should only contain positive numbers, and must be in exactly 2 decimal place. E.g. "4.64"</p>
+</li>
+<li>
+<p><code>s/</code>: School can take any values, but should not be empty.</p>
+</li>
+<li>
+<p><code>m/</code>: Major should only contain alphanumeric characters and spaces, and should not be empty.</p>
+</li>
+<li>
+<p><code>j/</code>: Jobs Apply must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It should not be empty. It can take more than 1 value. E.g. "j/Manager j/Sweeper"</p>
+</li>
+<li>
+<p><code>is/</code>: Interview scores field is optional, and must be exactly 5 set of numbers, each seperated by a comma. E.g. "1,2,3,4,5"</p>
+</li>
+<li>
+<p><code>kpl/</code>: Known Programming Language field is optional. It can take any values, and can take more than 1 value. E.g. "kpl/Java kpl/Python"</p>
+</li>
+<li>
+<p><code>pj/</code>: Past jobs field is optional, and past job must only contain one word. If two or more words, have to be connected by a dash. E.g. "Software-Engineer". It can take more than 1 value E.g. "pj/Manager pj/Sweeper"</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
+</div>
 <div class="paragraph">
-<p>Sets the maximum number of interviews to be generated in a day.</p>
+<p>Examples:</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code"><a class="link" href="#set-block-out-dates-for-interviews-code-setblockoutdates-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-or-dd-mm-yyyy-dd-mm-yyyy-dd-mm-yyyy-code">Set block out dates for interviews : <code>setBlockOutDates [DD/MM/YYYY] OR [DD/MM/YYYY - DD/MM/YYYY] OR [DD/MM/YYYY], [DD/MM/YYYY - DD/MM/YYYY]</code></a></h4>
-<div class="paragraph">
-<p>Sets the block out dates(unavailable dates) which the interviewer is not available for interviews to be scheduled.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">Show interviews dates : <code>showInterviews</code></a></h3>
-<div class="paragraph">
-<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/John p/91757536 nric/S8761230Q e/john@example.com a/123 Disneyland g/Male r/Malay m/Psychology s/NUS gr/4.33 j/Manager</code></p>
+</li>
+<li>
+<p><code>add n/Betty p/123 nric/S4444455Y e/betty@bet.com a/321 USS g/Female r/Others m/Life Science s/NTU gr/0.44 j/Helper is/1,2,1,10,5 kpl/Java pj/Chief-Executive-Officer</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -160,52 +315,78 @@ Format : <code>generateInterviews</code></p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="interviews-feature"><a class="link" href="#interviews-feature">Interviews Feature</a></h3>
+<h3 id="analytics-feature"><a class="link" href="#analytics-feature">Analytics Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The interviews and its functionalities are facilitated by the Interviews class.
-It is a field present in the versionedAddressBook, therefore it works naturally with the implemented undo/redo operation in slaveFinder().
-(Show is not counted as an operation and hence it is not saved as a state).
-The Interview class acts as an association class between calendar and person.</p>
+<p>The analytics is facilicated by the Analytics class. Analytics data are generated in real time depending on the specific job currently on display in the software by the user. Hence it will not be saved as states in the <code>versionedAddressBook</code>. It pulls required person list to generate data from Model, which consists of lists: <code>displayedFilter</code>, <code>activeJobAllApplicants</code>, <code>activeJobKiv</code>, <code>activeJobInterview</code>, <code>activeJobShortist</code>. An <code>Analytics</code> object will be created by Analytics class, storing the various required data generated, and pass it to Logic and UI for display.</p>
+</div>
+<div class="paragraph">
+<p>Given below is the sequence diagram for <code>analytics</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/InterviewsAssociationClass.png" alt="InterviewsAssociationClass" width="650">
+<img src="../images/AnalyticsDiagram.png" alt="AnalyticsDiagram" width="790">
 </div>
 </div>
-<div class="paragraph">
-<p>For the generate command. There are total 2 parameters that determines how the interviews list is generated.
-The 2 parameters are: maxInterviewsADay and blockOutDates.
-maxInterviewsADay determines the number of interviews that can be scheduled a day and it is saved in the interviews class
-blockOutDates are the user&#8217;s own block out dates which represent unavailable dates that the user is not free and therefore interviews cannot be scheduled.
-Another thing to note is that weekends are not considered in the scheduled as the user is assumed to have normal working hours from Monday to Friday.</p>
 </div>
-<div class="paragraph">
-<p>Given below is the sequence diagram for generateInterviews:</p>
 </div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="../images/GenerateInterviewsDiagram.png" alt="GenerateInterviewsDiagram" width="650">
+<img src="../images/UiComponentClassDiagram.png" alt="UiComponentClassDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p>An example of generateInterviews:</p>
+<div class="title">Figure 1. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p>Step 1. User launches the application. The blockOutDates field in the interviews class is currently empty.</p>
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>Step 2. User sets the block out dates with the respective command. User does not change the max interviews a day and it it set to a default value.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>JobListPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. User request for interviews to be generated.</p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
-<p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-view-analytics"><a class="link" href="#use-case-view-analytics">Use case: View Analytics</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to display various lists of applicants from one of the jobs in all job openings lists</p>
+</li>
+<li>
+<p>slaveFinder() shows lists of persons for specific job</p>
+</li>
+<li>
+<p>User requests to view analytics for specific list of persons</p>
+</li>
+<li>
+<p>slaveFinder() shows analytics results</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
 </div>
 <hr>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 16:44:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 19:52:28 UTC</div></div></div></body></html>
