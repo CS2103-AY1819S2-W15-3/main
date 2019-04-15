@@ -136,6 +136,12 @@ Dates generated exclude weekends and block out dates(see below).</p>
 </div>
 </div>
 <div class="sect3">
+<h4 id="clear-interview-dates-for-a-specified-job-opening-code-clearinterviews-jn-job_name-code-code-coming-in-v2-0-code"><a class="link" href="#clear-interview-dates-for-a-specified-job-opening-code-clearinterviews-jn-job_name-code-code-coming-in-v2-0-code">Clear Interview Dates for a specified job opening : <code>clearInterviews jn/[JOB_NAME]</code> <code>Coming in v2.0</code></a></h4>
+<div class="paragraph">
+<p>Clears the list of generated interview dates for the specified job.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
 <div class="paragraph">
 <p>Sets the maximum number of interviews to be generated in a day.</p>
@@ -150,7 +156,8 @@ Dates generated exclude weekends and block out dates(see below).</p>
 <div class="sect3">
 <h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">Show interviews dates : <code>showInterviews</code></a></h4>
 <div class="paragraph">
-<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
+<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.
+(Show is not considered an operation in terms of undo/redo, therefore when undo, the previous command before showInterviews is called)</p>
 </div>
 </div>
 <div class="sect3">
@@ -160,9 +167,15 @@ Dates generated exclude weekends and block out dates(see below).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reschedule-person-for-interview-code-move-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code"><a class="link" href="#reschedule-person-for-interview-code-move-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code">Reschedule Person for interview: <code>move nric/[NRIC] [FROM_DATE(dd/mm/yyyy)] [TO_DATE(dd/mm/yyyy)]</code> <code>Coming in v2.0</code></a></h4>
+<h4 id="reschedule-person-for-interview-code-move-jn-job_name-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code"><a class="link" href="#reschedule-person-for-interview-code-move-jn-job_name-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code">Reschedule Person for interview: <code>move jn/[JOB_NAME] nric/[NRIC] [FROM_DATE(dd/mm/yyyy)] [TO_DATE(dd/mm/yyyy)]</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Reschedules a person scheduled to a particular date to another date. If to date is not present, the person is removed from that date.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="save-interviews-data-code-coming-in-v2-0-code"><a class="link" href="#save-interviews-data-code-coming-in-v2-0-code">Save interviews data <code>Coming in v2.0</code></a></h4>
+<div class="paragraph">
+<p>Scheduled interviews is automatically stored in a json file.</p>
 </div>
 </div>
 </div>
@@ -181,54 +194,6 @@ Dates generated exclude weekends and block out dates(see below).</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="interviews-feature"><a class="link" href="#interviews-feature">Interviews Feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The interviews and its functionalities are facilitated by the Interviews class.
-It is a field present in the versionedAddressBook, therefore it works naturally with the implemented undo/redo operation in slaveFinder().
-(Show is not counted as an operation and hence it is not saved as a state).
-The reason for using Calendar over LocalDate is that in v2.0, the app can be upgrade to schedule interviews for any time instead of only scheduling by days.
-The Interview class acts as an association class between calendar and person.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/InterviewsAssociationClass.png" alt="InterviewsAssociationClass" width="650">
-</div>
-</div>
-<div class="paragraph">
-<p>For the generate command. There are total 2 parameters that determines how the interviews list is generated.
-The 2 parameters are: maxInterviewsADay and blockOutDates.
-maxInterviewsADay determines the number of interviews that can be scheduled a day and it is saved in the interviews class
-blockOutDates are the user&#8217;s own block out dates which represent unavailable dates that the user is not free and therefore interviews cannot be scheduled.
-Another thing to note is that weekends are not considered in the scheduled as the user is assumed to have normal working hours from Monday to Friday.</p>
-</div>
-<div class="paragraph">
-<p>Given below is the sequence diagram for generateInterviews:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/GenerateInterviewsDiagram.png" alt="GenerateInterviewsDiagram" width="650">
-</div>
-</div>
-<div class="paragraph">
-<p>An example of generateInterviews:</p>
-</div>
-<div class="paragraph">
-<p>Step 1. User launches the application. The blockOutDates field in the interviews class is currently empty.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. User sets the block out dates with setBlockOutDates command. User does not change the max interviews a day and it is set to a default value of 2.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. User request for interviews to be generated.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
-</div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
 <div class="imageblock">
@@ -280,21 +245,238 @@ Another thing to note is that weekends are not considered in the scheduled as th
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="../images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
-</td>
-</tr>
-</table>
+</div>
+<div class="sect2">
+<h3 id="interviews-feature"><a class="link" href="#interviews-feature">Interviews Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The interviews and its functionalities are facilitated by the Interviews class.
+It is a private field present in the versionedAddressBook, to facilitate the integration of interviews and its functions with undo/redo operation in slaveFinder().
+(Show is not counted as an operation and hence it is not saved as a state).
+The reason for using Calendar over LocalDate is that in v2.0, the app can be upgrade to schedule interviews for any time instead of only scheduling by days.
+The Interview class acts as an association class between calendar and person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewsAssociationClass.png" alt="InterviewsAssociationClass" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>For the generate command. There are total 2 parameters that determines how the interviews list is generated.
+The 2 parameters are: maxInterviewsADay and blockOutDates.
+maxInterviewsADay determines the number of interviews that can be scheduled a day and it is saved in the interviews class
+blockOutDates are the user&#8217;s own block out dates which represent unavailable dates that the user is not free and therefore interviews cannot be scheduled.
+Another thing to note is that weekends are not considered in the scheduled as the user is assumed to have normal working hours from Monday to Friday.</p>
+</div>
+<div class="paragraph">
+<p>Given below is the sequence diagram for generateInterviews:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GenerateInterviewsDiagram.png" alt="GenerateInterviewsDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of generateInterviews:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User launches the application. The blockOutDates field in the interviews class is currently empty.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. User sets the block out dates with setBlockOutDates command. User does not change the max interviews a day and it is set to a default value of 2.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. User request for interviews to be generated.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
+</div>
+<div class="paragraph">
+<p>Interviews also works with deletePerson, that is, when a person is deleted, he/she is also removed from his/her scheduled interview slots.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewsDeletePersonSequenceDiagram.png" alt="InterviewsDeletePersonSequenceDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of deleting a person:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User launches the application and generates interviews.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. User deletes the person from slaveFinder()</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Person is removed from his/her scheduled interview date</p>
+</div>
+<div class="paragraph">
+<p>interviews.removePerson(p) is called. A collection of ArrayList of person is taken from the HashMap and since the collection is backed by the map, any changes to the collection will be reflected in the hashmap.
+Thus removal of person will be reflected in the hashmap. Therefore this method of removal was used.</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |HR |arrange interview dates quickly |to be more efficient in finding the right person for the job</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |HR |include block out dates in before scheduling interviews |to be more efficient in finding the right person for the job</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-generate-and-show-interview-dates"><a class="link" href="#use-case-generate-and-show-interview-dates">Use case: Generate and show interview dates</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to arrange interview dates for applicants in slaveFinder()</p>
+</li>
+<li>
+<p>slaveFinder() assigns to each interviewee a date</p>
+</li>
+<li>
+<p>User request for the interview dates list</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User wants to set block out dates so no dates are arranged on that day.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. Block out dates set using the command.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. User wants to set maximum interviews a day</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. Max interviews a day set by using the command</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. User is not satisfied with the dates</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. User request to reassign a person to another date</p>
+</li>
+<li>
+<p>3a2. slaveFinder() reassigns that person</p>
+</li>
+<li>
+<p>3a3. slaveFinder() shows the updated interviews dates</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-clear-interview-dates"><a class="link" href="#use-case-clear-interview-dates">Use case: Clear interview dates</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request to clear interviews</p>
+</li>
+<li>
+<p>slaveFinder() clears interviews</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. User wants to recover the cleared interviews through undo</p>
+</li>
+<li>
+<p>3b. slaveFinder() undos the clear interview operation</p>
+</li>
+<li>
+<p>3c. Previous interview dates are recovered.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For interviews test commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>setMaxInterviewsADay 3</p>
+</li>
+<li>
+<p>setBlockOutDates 22/04/2019 - 24/04/2019</p>
+</li>
+<li>
+<p>generateInterviews</p>
+</li>
+<li>
+<p>showInterviews</p>
+</li>
+<li>
+<p>delete 1 (check that interviews works with delete)</p>
+</li>
+<li>
+<p>showInterviews</p>
+</li>
+<li>
+<p>clearInterviews</p>
+</li>
+<li>
+<p>showInterviews</p>
+</li>
+<li>
+<p>undo (check that interviews works with undo)</p>
+</li>
+<li>
+<p>redo (check that interviews works with redo)</p>
+</li>
+</ul>
 </div>
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:46:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:53:54 UTC</div></div></div></body></html>

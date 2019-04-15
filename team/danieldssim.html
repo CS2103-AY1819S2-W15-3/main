@@ -518,7 +518,7 @@ Shows all persons in All Applicants List.</p>
 Shows all persons whose school is NUS in Interview List in Job Detail Screen.</p>
 </li>
 <li>
-<p>`deleteFilter Interview `<br>
+<p><code>deleteFilter Interview fn/nus</code><br>
 Shows all persons in Interview List in Job Detail Screen.</p>
 </li>
 </ul>
@@ -564,7 +564,7 @@ Format: <code>clearFilter [FILTERLISTNAME]</code></p>
 Shows all persons whose school is NUS and major is CS in All Applicants List.</p>
 </li>
 <li>
-<p>`clearFilter `
+<p><code>clearFilter</code>
 Shows all persons in All Applicants List.</p>
 </li>
 <li>
@@ -573,7 +573,7 @@ Shows all persons in All Applicants List.</p>
 Shows all persons whose school is NUS and major is CS in Interview List in Job Detail Screen.</p>
 </li>
 <li>
-<p>`clearFilter `<br>
+<p><code>clearFilter Interview</code><br>
 Shows all persons in Interview List in Job Detail Screen.</p>
 </li>
 </ul>
@@ -654,6 +654,12 @@ Dates generated exclude weekends and block out dates(see below).</p>
 </div>
 </div>
 <div class="sect3">
+<h4 id="clear-interview-dates-for-a-specified-job-opening-code-clearinterviews-jn-job_name-code-code-coming-in-v2-0-code"><a class="link" href="#clear-interview-dates-for-a-specified-job-opening-code-clearinterviews-jn-job_name-code-code-coming-in-v2-0-code">Clear Interview Dates for a specified job opening : <code>clearInterviews jn/[JOB_NAME]</code> <code>Coming in v2.0</code></a></h4>
+<div class="paragraph">
+<p>Clears the list of generated interview dates for the specified job.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code"><a class="link" href="#set-maximum-number-of-interviews-a-day-code-setmaxinterviewsaday-number-code">Set maximum number of interviews a day : <code>setMaxInterviewsADay [NUMBER]</code></a></h4>
 <div class="paragraph">
 <p>Sets the maximum number of interviews to be generated in a day.</p>
@@ -668,7 +674,8 @@ Dates generated exclude weekends and block out dates(see below).</p>
 <div class="sect3">
 <h4 id="show-interviews-dates-code-showinterviews-code"><a class="link" href="#show-interviews-dates-code-showinterviews-code">Show interviews dates : <code>showInterviews</code></a></h4>
 <div class="paragraph">
-<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.</p>
+<p>Shows the list of dates which the interviewees in slaveFinder() are assigned.
+(Show is not considered an operation in terms of undo/redo, therefore when undo, the previous command before showInterviews is called)</p>
 </div>
 </div>
 <div class="sect3">
@@ -678,9 +685,15 @@ Dates generated exclude weekends and block out dates(see below).</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reschedule-person-for-interview-code-move-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code"><a class="link" href="#reschedule-person-for-interview-code-move-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code">Reschedule Person for interview: <code>move nric/[NRIC] [FROM_DATE(dd/mm/yyyy)] [TO_DATE(dd/mm/yyyy)]</code> <code>Coming in v2.0</code></a></h4>
+<h4 id="reschedule-person-for-interview-code-move-jn-job_name-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code"><a class="link" href="#reschedule-person-for-interview-code-move-jn-job_name-nric-nric-from_date-dd-mm-yyyy-to_date-dd-mm-yyyy-code-code-coming-in-v2-0-code">Reschedule Person for interview: <code>move jn/[JOB_NAME] nric/[NRIC] [FROM_DATE(dd/mm/yyyy)] [TO_DATE(dd/mm/yyyy)]</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Reschedules a person scheduled to a particular date to another date. If to date is not present, the person is removed from that date.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="save-interviews-data-code-coming-in-v2-0-code"><a class="link" href="#save-interviews-data-code-coming-in-v2-0-code">Save interviews data <code>Coming in v2.0</code></a></h4>
+<div class="paragraph">
+<p>Scheduled interviews is automatically stored in a json file.</p>
 </div>
 </div>
 </div>
@@ -855,7 +868,16 @@ e.g.<code>select 2</code></p>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
-<p><strong>Arrange Interviews</strong> : <code>arrangeInterviews</code></p>
+<p><strong>Generate Interviews</strong> : <code>generateInterviews</code></p>
+</li>
+<li>
+<p><strong>Set maximum number of interviews a day</strong> : <code>setMaxInterviewsADay[MAX_NUM_INTERVIEWS]</code></p>
+</li>
+<li>
+<p><strong>Set block out dates for interviews</strong> : `setBlockOutDATES[DD/MM/YYYY OR DD/MM/YYYY - DD/MM/YYYY]</p>
+</li>
+<li>
+<p><strong>Clear interviews dates</strong> : <code>clearInterviews</code></p>
 </li>
 <li>
 <p><strong>Read to slaveFinder()</strong> : <code>readAll</code></p>
@@ -1247,7 +1269,7 @@ values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters a
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The analytics is facilicated by the Analytics class. Analytics data are generated in real time depending on the specific job currently on display in the software by the user. Hence it will not be saved as states in the <code>versionedAddressBook</code>. It pulls required person list to generate data from Model, which consists of lists: <code>displayedFilter</code>, <code>activeJobAllApplicants</code>, <code>activeJobKiv</code>, <code>activeJobInterview</code>, <code>activeJobShortist</code>. An <code>Analytics</code> object will be created by Analytics class, storing the various required data generated, and pass it to Logic and UI for display.</p>
+<p>The analytics is facilitated by the Analytics class. Analytics data are generated in real time depending on the specific job currently on display in the software by the user. Hence it will not be saved as states in the <code>versionedAddressBook</code>. It pulls required person list to generate data from Model, which consists of lists: <code>displayedFilter</code>, <code>activeJobAllApplicants</code>, <code>activeJobKiv</code>, <code>activeJobInterview</code>, <code>activeJobShortist</code>. An <code>Analytics</code> object will be created by Analytics class, storing the various required data generated, and pass it to Logic and UI for display.</p>
 </div>
 <div class="paragraph">
 <p>Given below is the sequence diagram for <code>analytics</code>:</p>
@@ -1265,7 +1287,7 @@ values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters a
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The interviews and its functionalities are facilitated by the Interviews class.
-It is a field present in the versionedAddressBook, therefore it works naturally with the implemented undo/redo operation in slaveFinder().
+It is a private field present in the versionedAddressBook, to facilitate the integration of interviews and its functions with undo/redo operation in slaveFinder().
 (Show is not counted as an operation and hence it is not saved as a state).
 The reason for using Calendar over LocalDate is that in v2.0, the app can be upgrade to schedule interviews for any time instead of only scheduling by days.
 The Interview class acts as an association class between calendar and person.</p>
@@ -1304,6 +1326,30 @@ Another thing to note is that weekends are not considered in the scheduled as th
 </div>
 <div class="paragraph">
 <p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
+</div>
+<div class="paragraph">
+<p>Interviews also works with deletePerson, that is, when a person is deleted, he/she is also removed from his/her scheduled interview slots.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InterviewsDeletePersonSequenceDiagram.png" alt="InterviewsDeletePersonSequenceDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of deleting a person:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User launches the application and generates interviews.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. User deletes the person from slaveFinder()</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Person is removed from his/her scheduled interview date</p>
+</div>
+<div class="paragraph">
+<p>interviews.removePerson(p) is called. A collection of ArrayList of person is taken from the HashMap and since the collection is backed by the map, any changes to the collection will be reflected in the hashmap.
+Thus removal of person will be reflected in the hashmap. Therefore this method of removal was used.</p>
 </div>
 <div class="sect4">
 <h5 id="aspect-how-interviews-is-integrated-with-delete-person-command"><a class="link" href="#aspect-how-interviews-is-integrated-with-delete-person-command">Aspect: How interviews is integrated with delete Person command</a></h5>
@@ -1964,9 +2010,6 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2251,6 +2294,10 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="use-case-search-person"><a class="link" href="#use-case-search-person">Use case: Search person</a></h3>
+
+</div>
+<div class="sect2">
 <h3 id="use-case-filter-person"><a class="link" href="#use-case-filter-person">Use case: Filter person</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2427,6 +2474,43 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>For interviews test commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>setMaxInterviewsADay 3</p>
+</li>
+<li>
+<p>setBlockOutDates 22/04/2019 - 24/04/2019</p>
+</li>
+<li>
+<p>generateInterviews</p>
+</li>
+<li>
+<p>showInterviews</p>
+</li>
+<li>
+<p>delete 1 (check that interviews works with delete)</p>
+</li>
+<li>
+<p>showInterviews</p>
+</li>
+<li>
+<p>clearInterviews</p>
+</li>
+<li>
+<p>showInterviews</p>
+</li>
+<li>
+<p>undo (check that interviews works with undo)</p>
+</li>
+<li>
+<p>redo (check that interviews works with redo)</p>
+</li>
+</ul>
+</div>
 <div class="sect2">
 <h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
 <div class="olist arabic">
@@ -2568,4 +2652,4 @@ Expected: Similar to previous.</p>
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:46:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:53:54 UTC</div></div></div></body></html>
