@@ -32,9 +32,10 @@
 <li><a href="#displays-one-of-the-four-persons-list-in-a-job-code-displayjob-code">3.2.3. Displays one of the four persons list in a job : <code>displayJob</code></a></li>
 <li><a href="#add-all-shown-persons-in-a-list-to-another-list-code-addall-code">3.2.4. Add all shown persons in a list to another list : <code>addAll</code></a></li>
 <li><a href="#adds-people-using-by-index-to-a-selected-list-in-a-job-code-movepeople-code">3.2.5. Adds people using by index to a selected list in a Job : <code>movePeople</code></a></li>
-<li><a href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v2-0-code">3.2.6. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v2.0</code></a></li>
-<li><a href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code">3.2.7. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v2.0</code></a></li>
-<li><a href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code">3.2.8. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v2.0</code></a></li>
+<li><a href="#adds-people-using-by-index-to-a-selected-list-in-a-job-code-remove-code">3.2.6. Adds people using by index to a selected list in a Job : <code>remove</code></a></li>
+<li><a href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v2-0-code">3.2.7. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v2.0</code></a></li>
+<li><a href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code">3.2.8. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v2.0</code></a></li>
+<li><a href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code">3.2.9. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v2.0</code></a></li>
 </ul>
 </li>
 <li><a href="#filter-related-features">3.3. Filter Related Features</a>
@@ -662,7 +663,7 @@ Format : `movePeople TO FROM INDEXES [jn/JOBNAME]`</pre>
 <div class="ulist">
 <ul>
 <li>
-<p><code>FROM</code> input is optional and if not given, input list will be the displayed list of the entire directory.</p>
+<p><code>FROM</code> input can only be given if a job is displayed, input list will be the displayed list of the entire directory.</p>
 </li>
 <li>
 <p><code>JOBNAME</code> input is required only if there isn&#8217;t a displayed job. Should be omitted otherwise.</p>
@@ -698,7 +699,27 @@ moves person 2 in applied list to kiv list in Lecturer</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-people-into-interview-list-code-selectinterview-code-code-coming-in-v2-0-code"><a class="link" href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v2-0-code">3.2.6. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v2.0</code></a></h4>
+<h4 id="adds-people-using-by-index-to-a-selected-list-in-a-job-code-remove-code"><a class="link" href="#adds-people-using-by-index-to-a-selected-list-in-a-job-code-remove-code">3.2.6. Adds people using by index to a selected list in a Job : <code>remove</code></a></h4>
+<div class="literalblock">
+<div class="content">
+<pre> Removes people from a specific list in Job+
+Format : `remove FROM INDEXES [jn/JOBNAME]`</pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only usage if on display job screen</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-people-into-interview-list-code-selectinterview-code-code-coming-in-v2-0-code"><a class="link" href="#select-people-into-interview-list-code-selectinterview-code-code-coming-in-v2-0-code">3.2.7. Select people into "Interview" List: <code>selectInterview</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Select people from display board to the Job Hiring Process&#8217;s "Interviewed" list<br>
 Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
@@ -741,7 +762,7 @@ Selects all the people on the Person Display List to the "Interview" list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code"><a class="link" href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code">3.2.7. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v2.0</code></a></h4>
+<h4 id="select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code"><a class="link" href="#select-people-into-to-be-sent-to-boss-list-code-selectfinal-code-code-coming-in-v2-0-code">3.2.8. Select people into "To be sent to boss" List: <code>selectfinal</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Select people from display board to the Job Hiring Process&#8217;s "To be sent to boss" List<br>
 Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
@@ -765,7 +786,7 @@ Format : <code>selectInterview [INDEX] [INDEX-INDEX] [all]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code">3.2.8. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v2.0</code></a></h4>
+<h4 id="generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code"><a class="link" href="#generate-a-final-report-for-the-job-hiring-process-code-report-code-code-coming-in-v2-0-code">3.2.9. Generate a final report for the Job Hiring Process : <code>report</code> <code>Coming in v2.0</code></a></h4>
 <div class="paragraph">
 <p>Generate <code>report.txt</code> to show 3 categories of applicants for a specific role:
 "Applied", "Interview", "To be sent to boss". in a Job Hiring Process.<br>
@@ -1307,7 +1328,10 @@ e.g. `filter r/Chinese</code></p>
 <li>
 <p><strong>Move People</strong> : <code>movePeople TO FROM(OPTIONAL) INDEXES [jn/JOBNAME](ONLY ON DEFAULT SCREEN)</code></p>
 </li>
+<li>
+<p><strong>Remove</strong> : 'remove FROM INDEXES [jn/JOBNAME]'</p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 21:15:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 02:34:32 UTC</div></div></div></body></html>
