@@ -519,6 +519,27 @@ The following class plays an important role at the architecture level:</p>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
+<li>
+<p>InterviewScores stores the scores of the applicant and is used in considering an applicant for hiring.</p>
+</li>
+<li>
+<p>NRIC is used as a unique identifier for an applicant.</p>
+</li>
+<li>
+<p>School of the applicant (no restrictions on the input for this).</p>
+</li>
+<li>
+<p>Race and Gender can only take specific values as spelled out in the user guide and it is used in the analytics portion of the app.</p>
+</li>
+<li>
+<p>JobsApply should always be present when a for a person.</p>
+</li>
+<li>
+<p>PastJobs, KnownProgLang and InterviewScores are optional.</p>
+</li>
+<li>
+<p>PastJobs, KnownProgLang and Major stores values as strings therefore, "Engineer, Data Scientist" are stored as one PastJobs.</p>
+</li>
 </ul>
 </div>
 <div class="admonitionblock note">
@@ -1129,6 +1150,7 @@ values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters a
 <p>The interviews and its functionalities are facilitated by the Interviews class.
 It is a field present in the versionedAddressBook, therefore it works naturally with the implemented undo/redo operation in slaveFinder().
 (Show is not counted as an operation and hence it is not saved as a state).
+The reason for using Calendar over LocalDate is that in v2.0, the app can be upgrade to schedule interviews for any time instead of only scheduling by days.
 The Interview class acts as an association class between calendar and person.</p>
 </div>
 <div class="imageblock">
@@ -1158,13 +1180,57 @@ Another thing to note is that weekends are not considered in the scheduled as th
 <p>Step 1. User launches the application. The blockOutDates field in the interviews class is currently empty.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. User sets the block out dates with the respective command. User does not change the max interviews a day and it it set to a default value.</p>
+<p>Step 2. User sets the block out dates with setBlockOutDates command. User does not change the max interviews a day and it is set to a default value of 2.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. User request for interviews to be generated.</p>
 </div>
 <div class="paragraph">
 <p>Step 4. Interviews are generated with the restriction based on the parameters and working hours of a normal working adult.</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-interviews-is-integrated-with-delete-person-command"><a class="link" href="#aspect-how-interviews-is-integrated-with-delete-person-command">Aspect: How interviews is integrated with delete Person command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>When a person is removed, naturally he/she should also be removed from the scheduled interviews. A remove person function is implemented in interviews which potentially could be used by the v2.0 reschedule command to remove or reschedule persons for interviews.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-interviews-is-integrated-with-existing-undo-redo"><a class="link" href="#aspect-how-interviews-is-integrated-with-existing-undo-redo">Aspect: How interviews is integrated with existing undo/redo</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> In order to hinge on the existing undo/redo command, interviews was implemented as a field in AddressBook.java. In the event that undo and redo is called, the data is reset to that of a previous state.
+In the current implementation, the data is copied over and could take up a lot of time if there is a large amount of dates to copy over.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Performance issues may arise in terms of memory usage</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implement a function that keeps track of what the user does to interviews and each time a undo is called, the previous command&#8217;s inverse function is called.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less memory is used</p>
+</li>
+<li>
+<p>Cons: Need to consider all possible commands, when adding new command, need to include an inverse command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1744,6 +1810,12 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to be more efficient in finding the right person for the job</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">include block out dates in before scheduling interviews</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to be more efficient in finding the right person for the job</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HR</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">delete a job posting</p></td>
@@ -1983,7 +2055,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>1b1. Max interviews a day set by using</p>
+<p>1b1. Max interviews a day set by using the command</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2353,4 +2425,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:31:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:49:52 UTC</div></div></div></body></html>
