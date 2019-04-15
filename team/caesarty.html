@@ -1,0 +1,913 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Teng Yun - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S2-W15-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Teng Yun - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-slavefinder"><a class="link" href="#project-slavefinder">PROJECT: slaveFinder()</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>slaveFinder() is a desktop recruiting software tracking all resumes from the company and helps HR managers manage most of their hiring process. It allows HR to easily import resumes and transform applicants' information into concise and organized format. It helps HR Manager to find the best talent by filter almost all information and automaticaly do analytics and statistics. During the hiring processing, this software will always visualize all stages and it also can help you auto schedule the interviews. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java and has about 15 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>a convenient and controlable filter system to filter applicants on their information</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:
+<strong>*Allows the user to filter base on the various fields data of the applicants.
+</strong>*Filter is visble and can be combined.
+<strong>*Filter can be deleted by their name or cleared all in one command
+</strong>*Each Applicants list has an independent filter list.</p>
+</li>
+<li>
+<p>Justification: HR manager always faces a lot of resumes and applicants' information, a powerful filter system can save them a lot of time and find the perfect candidates in different needs. It can also be used combining with analytic and deliver more insights to user.</p>
+</li>
+<li>
+<p>Highlights: A visble filter system will be convenient for HR manager to manage the filter process, it makes filter process more controlable.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/filter.png" alt="filter" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Minor enhancement</strong>: Add Person field: PastJob(<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/62">#62</a>) and ListName class.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=caesarty">Link to RepoSense</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure user cannot using some delete features such as tag and find.(<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/243">#243</a>)</p>
+</li>
+<li>
+<p>Refine Message system and add more detailed error handling in commands such as add and filter (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/229">#229</a>)</p>
+</li>
+<li>
+<p>Make sure commands will not be used in unmatched Screen(mode)(<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/248">#248</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features and my own features. Test code(including system test code) coverage over ninety percent on filter related features.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reformat the User Guide: (<a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/257">#257</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S2-W15-3/main/pull/71">#71</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/881">1</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/798">2</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/676">3</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/417">4</a>, <a href="https://github.com/nus-cs2103-AY1819S2/pe-dry-run/issues/220">5</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="applicants-related-features"><a class="link" href="#applicants-related-features">Applicants Related Features</a></h3>
+<div class="sect3">
+<h4 id="open-cv-for-potential-applicants-code-opencv-code-code-coming-in-v2-0-code"><a class="link" href="#open-cv-for-potential-applicants-code-opencv-code-code-coming-in-v2-0-code">Open CV for potential applicants : <code>openCV</code> <code>Coming in v2.0</code></a></h4>
+<div class="paragraph">
+<p>Opens the real CV provided in Resume Form of applicants<br>
+Format: `openCV [FILTERLISTNAME] INDEX `</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can be used in both All Jobs Screen and Job Detail Screen, when Screen is All JOb Showing Screen, <strong>FILTERLISTNAME should be empty</strong>.</p>
+</li>
+<li>
+<p>When Screen is Job Detail Screen (four applicants lists shows), <strong>FILTERLISTNAME is needed</strong>.</p>
+</li>
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will be used.</p>
+</li>
+<li>
+<p>Opens the CV of applicants at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Pontential candidate will be confirmed by FILTERLISTNAME (if any) and index and his/her CV will be opened for reference.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>openCV 1</code><br>
+Opens the CV of the 1st applicants showing on All Allicants List</p>
+</li>
+<li>
+<p><code>openCV applicant 2</code><br>
+Opens the CV of the 2nd applicants showing on Allicants List in Job Detail Screen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-related-features"><a class="link" href="#filter-related-features">Filter Related Features</a></h3>
+<div class="sect3">
+<h4 id="filter-results-code-filter-code"><a class="link" href="#filter-results-code-filter-code">Filter results : <code>filter</code></a></h4>
+<div class="paragraph">
+<p>Filter the people displayed on the Person List. Each filer has a name and can be delete, diplay result always base on all filter request.<br>
+Format: <code>filter [FILTERLISTNAME] fn/FILTERNAME [n/NAME] pp/PHONE_NUMBER] [nric/NRIC] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [m/MAJOR] [s/SCHOOL] [gr/GRADE] [is1/INTERVIEWSCORESQ1] [is2/INTERVIEWSCORESQ2] [is3/INTERVIEWSCORESQ3] [is4/INTERVIEWSCORESQ4] [is5/INTERVIEWSCORESQ5] [j/JOBS_APPLY]&#8230;&#8203; [kpl/KnowPROGLANG]&#8230;&#8203; [pj/PASTJOB]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can be used in both All Jobs Screen and Job Detail Screen, when Screen is All JOb Showing Screen, <strong>FILTERLISTNAME should be empty</strong>.</p>
+</li>
+<li>
+<p>When Screen is Job Detail Screen (four applicants lists shows), <strong>FILTERLISTNAME is needed</strong>.</p>
+</li>
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will used.</p>
+</li>
+<li>
+<p>FILTERLISTNAME can be full name of the job lists such as "Applicant", "KIV", "Interview", "Shortlist".</p>
+</li>
+<li>
+<p>FILTERLISTNAME also can be prefix of the job lists such as "a", "k", "i", "s".</p>
+</li>
+<li>
+<p>Multiple filters can be added to filter people. All the filter labels will show on the Filter Panel.</p>
+</li>
+<li>
+<p>Applicant List always display people base on all undeleted filters. Persons matching all filters will be returned (i.e. <code>AND</code>)</p>
+</li>
+<li>
+<p>The filter can be an empty filter without any filtering parameter. e.g. <code>filter fn/empty</code> All applicants will be matched in empty filter.</p>
+</li>
+<li>
+<p>Filter Name can be any valid String except the String cotaining parameter&#8217;s prefixes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, <code><sup>_</sup></code>, <code>Gender: Male, School: NUS</code>, <code>naming is difficult!</code> can all be a valid filter name.</p>
+</li>
+<li>
+<p>But <code>s/nus</code>, <code>valid filtername n/</code> can not be a valid filter name and the string after the prefix will be regraded as corresponded information and parse into System.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For grade field (Grade and Interview Scores):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Interview has five questions and all the value can be filter by <code>gr/</code> or <code>is[num]/</code> (num = {1,2,3,4,5})</p>
+</li>
+<li>
+<p>The keyword is a range and splitted by <code>;</code>.</p>
+</li>
+<li>
+<p>The keyword should be in correct format. e.g. <code>3.2-4.3</code> <code>5 - 6</code> <code>3 - 1</code>.</p>
+</li>
+<li>
+<p>Persons' grade or scores are exactly equal to the Upper bound or lower bound will return.</p>
+</li>
+<li>
+<p>The Upper bound can lower than lower bound, and no applicants will be matched.</p>
+</li>
+<li>
+<p>Persons matching at least one keyword (range) will be returned (i.e. <code>OR</code> ). e.g. <code>gr/3-4; 4-5</code> will match person with grade in range [3,4] and [4,5].</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For other field:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The keyword can be any string and splitted by space.</p>
+</li>
+<li>
+<p>The match is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> ). e.g. <code>Hans Bo</code> will match <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter fn/nus s/nus</code><br>
+Shows all persons whose school is NUS in All Applicants List.</p>
+</li>
+<li>
+<p><code>filter fn/nus s/nus m/CS</code><br>
+Shows all persons whose school is NUS and major is CS in All Applicants List.</p>
+</li>
+<li>
+<p><code>filter fn/nus s/nus</code><br>
+<code>filter fn/CS m/CS</code>
+Shows all persons whose school is NUS and major is CS in All Applicants List.</p>
+</li>
+<li>
+<p><code>filter fn/grade gr/4.8-5.0;3.0-3.1</code><br>
+Shows all persons whose grade in range of [4.8,5.0] or [3.0,3.1] in All Applicants List.</p>
+</li>
+<li>
+<p><code>filter Interview fn/nus s/nus</code><br>
+Shows all persons whose school is NUS in Interview List in Job Detail Screen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-filter-code-deletefilter-code"><a class="link" href="#delete-a-filter-code-deletefilter-code">Delete a Filter : <code>deleteFilter</code></a></h4>
+<div class="paragraph">
+<p>Delete a filter showing on the display board and renew the update display people list.<br>
+Format: <code>deleteFilter [FILTERLISTNAME] FILTERNAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can be used in both All Jobs Screen and Job Detail Screen, when Screen is All JOb Showing Screen, <strong>FILTERLISTNAME should be empty</strong>.</p>
+</li>
+<li>
+<p>When Screen is Job Detail Screen (four applicants lists shows), <strong>FILTERLISTNAME is needed</strong>.</p>
+</li>
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will used.</p>
+</li>
+<li>
+<p>FILTERLISTNAME can be full name of the job lists such as "Applicant", "KIV", "Interview", "Shortlist".</p>
+</li>
+<li>
+<p>FILTERLISTNAME also can be prefix of the job lists such as "a", "k", "i", "s".</p>
+</li>
+<li>
+<p>You can only delete one filter perin one command. The filter label you delete will disappear on the Filter Panel.</p>
+</li>
+<li>
+<p>Applicants List always display people base on all undeleted filters.Persons matching all filters will be returned (i.e. <code>AND</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter fn/nus s/nus</code><br>
+Shows all persons whose school is NUS in All Applicants List.</p>
+</li>
+<li>
+<p><code>deleteFilter nus</code>
+Shows all persons in All Applicants List.</p>
+</li>
+<li>
+<p><code>filter Interview fn/nus s/nus</code><br>
+Shows all persons whose school is NUS in Interview List in Job Detail Screen.</p>
+</li>
+<li>
+<p>`deleteFilter Interview `<br>
+Shows all persons in Interview List in Job Detail Screen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-a-filter-list-code-clearfilter-code"><a class="link" href="#clear-a-filter-list-code-clearfilter-code">Clear a Filter List: <code>clearFilter</code></a></h4>
+<div class="paragraph">
+<p>Clear a filter showing on the display board and renew the update display people list.<br>
+Format: <code>clearFilter [FILTERLISTNAME]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can be used in both All Jobs Screen and Job Detail Screen, when Screen is All JOb Showing Screen, <strong>FILTERLISTNAME should be empty</strong>.</p>
+</li>
+<li>
+<p>When Screen is Job Detail Screen (four applicants lists shows), <strong>FILTERLISTNAME is needed</strong>.</p>
+</li>
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will used.</p>
+</li>
+<li>
+<p>FILTERLISTNAME can be full name of the job lists such as "Applicant", "KIV", "Interview", "Shortlist".</p>
+</li>
+<li>
+<p>FILTERLISTNAME also can be prefix of the job lists such as "a", "k", "i", "s".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter fn/nus s/nus</code><br>
+<code>filter fn/CS m/CS</code>
+Shows all persons whose school is NUS and major is CS in All Applicants List.</p>
+</li>
+<li>
+<p>`clearFilter `
+Shows all persons in All Applicants List.</p>
+</li>
+<li>
+<p><code>filter Interview fn/nus s/nus</code><br>
+<code>filter Interview fn/CS m/CS</code>
+Shows all persons whose school is NUS and major is CS in Interview List in Job Detail Screen.</p>
+</li>
+<li>
+<p>`clearFilter `<br>
+Shows all persons in Interview List in Job Detail Screen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="filter-feature"><a class="link" href="#filter-feature">Filter Feature</a></h3>
+<div class="paragraph">
+<p>With the filter feature, users can input specific parameters that act as conditions for slaveFinder() to conditionally update the <code>UniqueFilterList</code> and filter the <code>UniquePeronList</code>. Using these parameters, slaveFinder() shows applicants contains the specified parameters. Filter is visble and can combine or be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Command Format:
+<strong><code>filter [FILTERLISTNAME] fn/FILTERNAME [&lt;prefix&gt;/&lt;parameter&gt;]&#8230;&#8203;</code>
+</strong><code>deleteFilter [FILTERLISTNAME] fn/FILTERNAME</code>
+**<code>clearFilter [FILTERLISTNAME]</code></p>
+</div>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will used.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="add-filter"><a class="link" href="#add-filter">Add Filter</a></h4>
+<div class="paragraph">
+<p>The command format for Adding a Filter is:</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>filter [FILTERLISTNAME] fn/FILTERNAME [n/NAME] pp/PHONE_NUMBER] [nric/NRIC] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [m/MAJOR] [s/SCHOOL] [gr/GRADE] [is1/INTERVIEWSCORESQ1] [is2/INTERVIEWSCORESQ2] [is3/INTERVIEWSCORESQ3] [is4/INTERVIEWSCORESQ4] [is5/INTERVIEWSCORESQ5] [j/JOBS_APPLY]&#8230;&#8203; [kpl/KnowPROGLANG]&#8230;&#8203; [pj/PASTJOB]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If multiple fields are provided, this command will filter the <code>UniquePersonList</code> by <code>AND</code> logic among multiple fields.</p>
+</li>
+<li>
+<p>If multiple keywords are provided in one command, this command will filter the <code>UniquePersonList</code> by <code>OR</code> logic among multiple keywords.</p>
+</li>
+<li>
+<p>Example: <code>filter fn/filter1 m/CS s/NUS</code> changes the UI to display applicants whose school is NUS <strong>AND</strong> major is CS. <code>filter fn/filter2 s/NUS NTU</code> changes the UI to display applicants whose school is NUS <strong>OR</strong> NTU.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>filter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>FilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>FilterCommandParser</code> tokenizes the other argument string using <code>ArgumentTokenizer</code> object, The regular expressions will be checked and mapping each parameter to it&#8217;s respective prefix in an <code>ArgumentMultiMap</code> object. <code>FilterCommandParser</code> then creates a <code>predicatePersonDescriptor</code> object using the parameter
+values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters are specified by the user, or if an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>FilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+</div>
+<div class="paragraph">
+<p>If valid inputs are provided, <code>predicatePersonDescriptor</code> will be created and <code>FilterCommandParser</code> will return a <code>FilterCommand</code> with parameters <code>predicatePersonDescriptor</code> and <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code> then creates a Predicate Manager object (implements Java 8’s Predicate interface) using the parameter values in <code>predicatePersonDescriptor</code> for each filter condition, and combines them into one single Predicate using the and() function in Predicate interface. After that, <code>FilterCommand</code> calls the addPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
+</div>
+<div class="sect4">
+<h5 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The following sequence diagram shows the flow of events when the <code>filter fn/nus</code> command is entered by the user:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterSD.png" alt="FilterSD" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure: Sequence diagram illustrating the interactions between the
+<code>Logic</code> and <code>Model</code> components when <code>filter</code> command is called.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-filter"><a class="link" href="#delete-filter">Delete Filter</a></h4>
+<div class="paragraph">
+<p>The command format for Adding a Filter is:</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteFilter [FILTERLISTNAME] FILTERNAME</code></p>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>deleteFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>DeleteFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>DeleteFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>DeleteFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+</div>
+<div class="paragraph">
+<p>If valid inputs are provided, <code>DeleteFilterCommandParser</code> will return a <code>DeleteFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>DeleteFilterCommand</code> calls the removePredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-filter"><a class="link" href="#clear-filter">Clear Filter</a></h4>
+<div class="paragraph">
+<p>The command format for Adding a Filter is:</p>
+</div>
+<div class="paragraph">
+<p>Format: `clearFilter [FILTERLISTNAME] `</p>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>clearFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>ClearFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>ClearFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, then <code>ClearFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+</div>
+<div class="paragraph">
+<p>If valid inputs are provided, <code>ClearFilterCommandParser</code> will return a <code>ClearFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>ClearFilterCommand</code> calls the clearPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>ClearFilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using an always true PredicateManager object. UI will change and displaying an empty filter panel and the all Persons will show.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-parse-parameters-in-filter-command"><a class="link" href="#aspect-how-to-parse-parameters-in-filter-command">Aspect: How to parse parameters in filter command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>FilterCommandParse</code> Create a <code>predicatePersonDescriptor</code> object and parse it to <code>FilterCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make filterCommand more comparable. We can compare <code>predicatePersonDescriptor</code> to say whether two filter Command is same.</p>
+</li>
+<li>
+<p>Have better contol on a Filtercommand.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: Logic is indirect.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> <code>FilterCommandParse</code> combine all conditions (parameters) in a Predicate and parse it to <code>FilterCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Logic is direct.</p>
+</li>
+<li>
+<p>Cons: Predicate interface is incomparable so this make test more difficult.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-design-a-filter-name-restricted-format"><a class="link" href="#aspect-how-to-design-a-filter-name-restricted-format">Aspect: How to design a filter name restricted format</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Filter name can be any String.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make Filter name more flexible.</p>
+</li>
+<li>
+<p>A filter may include many information. But user can only see this filter by it&#8217;s Filter name label. So it should allow user make a more detailed name for memory and control.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: Because user can take unpredictable signas their filter name, so it may cause unpredictable bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Filter name should only be restricted in the specified format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to control and handle error.</p>
+</li>
+<li>
+<p>Cons: User more need more complicated filter name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-handle-filter-grade-and-interview-scores"><a class="link" href="#aspect-how-to-handle-filter-grade-and-interview-scores">Aspect: How to handle filter grade and interview scores</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Filter parameter become a value range and person&#8217;s score in this range will be returned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make more sense on filtering value related field.</p>
+</li>
+<li>
+<p>HR manager like to know peron&#8217;s score in a range, not exactly in a specified value.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: May add additional logic and error handling.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Same logic as other field</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: HR manager like to know peron&#8217;s score in a range, not exactly equal to a specified value.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-feature-2"><a class="link" href="#filter-feature-2">Filter Feature</a></h3>
+<div class="paragraph">
+<p>With the filter feature, users can input specific parameters that act as conditions for slaveFinder() to conditionally update the <code>UniqueFilterList</code> and filter the <code>UniquePeronList</code>. Using these parameters, slaveFinder() shows applicants contains the specified parameters. Filter is visble and can combine or be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Command Format:
+<strong><code>filter [FILTERLISTNAME] fn/FILTERNAME [&lt;prefix&gt;/&lt;parameter&gt;]&#8230;&#8203;</code>
+</strong><code>deleteFilter [FILTERLISTNAME] fn/FILTERNAME</code>
+**<code>clearFilter [FILTERLISTNAME]</code></p>
+</div>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>FILTERLISTNAME indicate which Job list this command will used.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="add-filter-2"><a class="link" href="#add-filter-2">Add Filter</a></h4>
+<div class="paragraph">
+<p>The command format for Adding a Filter is:</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>filter [FILTERLISTNAME] fn/FILTERNAME [n/NAME] pp/PHONE_NUMBER] [nric/NRIC] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [m/MAJOR] [s/SCHOOL] [gr/GRADE] [is1/INTERVIEWSCORESQ1] [is2/INTERVIEWSCORESQ2] [is3/INTERVIEWSCORESQ3] [is4/INTERVIEWSCORESQ4] [is5/INTERVIEWSCORESQ5] [j/JOBS_APPLY]&#8230;&#8203; [kpl/KnowPROGLANG]&#8230;&#8203; [pj/PASTJOB]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If multiple fields are provided, this command will filter the <code>UniquePersonList</code> by <code>AND</code> logic among multiple fields.</p>
+</li>
+<li>
+<p>If multiple keywords are provided in one command, this command will filter the <code>UniquePersonList</code> by <code>OR</code> logic among multiple keywords.</p>
+</li>
+<li>
+<p>Example: <code>filter fn/filter1 m/CS s/NUS</code> changes the UI to display applicants whose school is NUS <strong>AND</strong> major is CS. <code>filter fn/filter2 s/NUS NTU</code> changes the UI to display applicants whose school is NUS <strong>OR</strong> NTU.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>filter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>FilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>FilterCommandParser</code> tokenizes the other argument string using <code>ArgumentTokenizer</code> object, The regular expressions will be checked and mapping each parameter to it&#8217;s respective prefix in an <code>ArgumentMultiMap</code> object. <code>FilterCommandParser</code> then creates a <code>predicatePersonDescriptor</code> object using the parameter
+values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters are specified by the user, or if an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>FilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+</div>
+<div class="paragraph">
+<p>If valid inputs are provided, <code>predicatePersonDescriptor</code> will be created and <code>FilterCommandParser</code> will return a <code>FilterCommand</code> with parameters <code>predicatePersonDescriptor</code> and <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code> then creates a Predicate Manager object (implements Java 8’s Predicate interface) using the parameter values in <code>predicatePersonDescriptor</code> for each filter condition, and combines them into one single Predicate using the and() function in Predicate interface. After that, <code>FilterCommand</code> calls the addPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The following sequence diagram shows the flow of events when the <code>filter fn/nus</code> command is entered by the user:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterSD.png" alt="FilterSD" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure: Sequence diagram illustrating the interactions between the
+<code>Logic</code> and <code>Model</code> components when <code>filter</code> command is called.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-filter-2"><a class="link" href="#delete-filter-2">Delete Filter</a></h4>
+<div class="paragraph">
+<p>The command format for Adding a Filter is:</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteFilter [FILTERLISTNAME] FILTERNAME</code></p>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>deleteFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>DeleteFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>DeleteFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>DeleteFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+</div>
+<div class="paragraph">
+<p>If valid inputs are provided, <code>DeleteFilterCommandParser</code> will return a <code>DeleteFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>DeleteFilterCommand</code> calls the removePredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-filter-2"><a class="link" href="#clear-filter-2">Clear Filter</a></h4>
+<div class="paragraph">
+<p>The command format for Adding a Filter is:</p>
+</div>
+<div class="paragraph">
+<p>Format: `clearFilter [FILTERLISTNAME] `</p>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>clearFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>ClearFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>ClearFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, then <code>ClearFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+</div>
+<div class="paragraph">
+<p>If valid inputs are provided, <code>ClearFilterCommandParser</code> will return a <code>ClearFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>ClearFilterCommand</code> calls the clearPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>ClearFilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using an always true PredicateManager object. UI will change and displaying an empty filter panel and the all Persons will show.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-parse-parameters-in-filter-command-2"><a class="link" href="#aspect-how-to-parse-parameters-in-filter-command-2">Aspect: How to parse parameters in filter command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>FilterCommandParse</code> Create a <code>predicatePersonDescriptor</code> object and parse it to <code>FilterCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make filterCommand more comparable. We can compare <code>predicatePersonDescriptor</code> to say whether two filter Command is same.</p>
+</li>
+<li>
+<p>Have better contol on a Filtercommand.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: Logic is indirect.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> <code>FilterCommandParse</code> combine all conditions (parameters) in a Predicate and parse it to <code>FilterCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Logic is direct.</p>
+</li>
+<li>
+<p>Cons: Predicate interface is incomparable so this make test more difficult.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-design-a-filter-name-restricted-format-2"><a class="link" href="#aspect-how-to-design-a-filter-name-restricted-format-2">Aspect: How to design a filter name restricted format</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Filter name can be any String.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make Filter name more flexible.</p>
+</li>
+<li>
+<p>A filter may include many information. But user can only see this filter by it&#8217;s Filter name label. So it should allow user make a more detailed name for memory and control.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: Because user can take unpredictable signas their filter name, so it may cause unpredictable bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Filter name should only be restricted in the specified format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to control and handle error.</p>
+</li>
+<li>
+<p>Cons: User more need more complicated filter name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-handle-filter-grade-and-interview-scores-2"><a class="link" href="#aspect-how-to-handle-filter-grade-and-interview-scores-2">Aspect: How to handle filter grade and interview scores</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Filter parameter become a value range and person&#8217;s score in this range will be returned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Make more sense on filtering value related field.</p>
+</li>
+<li>
+<p>HR manager like to know peron&#8217;s score in a range, not exactly in a specified value.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons: May add additional logic and error handling.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Same logic as other field</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: HR manager like to know peron&#8217;s score in a range, not exactly equal to a specified value.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:35:28 UTC</div></div></div></body></html>
