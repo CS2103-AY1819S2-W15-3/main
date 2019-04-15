@@ -492,7 +492,7 @@ Shows all persons in Interview List in Job Detail Screen.</p>
 values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters are specified by the user, or if an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>FilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
 </div>
 <div class="paragraph">
-<p>If valid inputs are provided, <code>predicatePersonDescriptor</code> will be created and <code>FilterCommandParser</code> will return a <code>FilterCommand</code> with parameters <code>predicatePersonDescriptor</code> and <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code> then creates a Predicate Manager object (implements Java 8’s Predicate interface) using the parameter values in <code>predicatePersonDescriptor</code> for each filter condition, and combines them into one single Predicate using the and() function in Predicate interface. After that, <code>FilterCommand</code> calls the addPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
+<p>If valid inputs are provided, <code>predicatePersonDescriptor</code> will be created and <code>FilterCommandParser</code> will return a <code>FilterCommand</code> with parameters <code>predicatePersonDescriptor</code> and <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code> then creates a Predicate Manager object (implements Java 8’s Predicate interface) using the parameter values in <code>predicatePersonDescriptor</code> for each filter condition, and combines them into one single Predicate using the and() function in Predicate interface. After that, <code>FilterCommand</code> calls the addPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true. If repeated filterName are specified by the user, or if an non-empty <code>FILTERLISTNAME</code> was be inputed in All Job Screen mode, or if no <code>FILTERLISTNAME</code> was be inputed in JOb Detail Screen mode, then <code>FilterCommandParser</code> throws a <code>CommandException</code> and displays an error message to the user.</p>
 </div>
 <div class="sect4">
 <h5 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h5>
@@ -513,31 +513,31 @@ values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters a
 <div class="sect3">
 <h4 id="delete-filter"><a class="link" href="#delete-filter">Delete Filter</a></h4>
 <div class="paragraph">
-<p>The command format for Adding a Filter is:</p>
+<p>The command format for Deleting a filter is:</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>deleteFilter [FILTERLISTNAME] FILTERNAME</code></p>
 </div>
 <div class="paragraph">
-<p>Upon entering the <code>deleteFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>DeleteFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>DeleteFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>DeleteFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+<p>Upon entering the <code>deleteFilter</code> command, the <code>deleteFilter</code> command word is stripped from the input and the argument fields are passed into the <code>DeleteFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>DeleteFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>DeleteFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
 </div>
 <div class="paragraph">
-<p>If valid inputs are provided, <code>DeleteFilterCommandParser</code> will return a <code>DeleteFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>DeleteFilterCommand</code> calls the removePredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
+<p>If valid inputs are provided, <code>DeleteFilterCommandParser</code> will return a <code>DeleteFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>DeleteFilterCommand</code> calls the removePredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true. If no filterName are found, or if an non-empty <code>FILTERLISTNAME</code> was be inputed in All Job Screen mode, or if no <code>FILTERLISTNAME</code> was be inputed in JOb Detail Screen mode, then <code>DeleteFilterCommandParser</code> throws a <code>CommandException</code> and displays an error message to the user.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="clear-filter"><a class="link" href="#clear-filter">Clear Filter</a></h4>
 <div class="paragraph">
-<p>The command format for Adding a Filter is:</p>
+<p>The command format for Clearing all filters is:</p>
 </div>
 <div class="paragraph">
 <p>Format: `clearFilter [FILTERLISTNAME] `</p>
 </div>
 <div class="paragraph">
-<p>Upon entering the <code>clearFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>ClearFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>ClearFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, then <code>ClearFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+<p>Upon entering the <code>clearFilter</code> command, the <code>clearFilter</code> command word is stripped from the input and the argument fields are passed into the <code>ClearFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>ClearFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, then <code>ClearFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
 </div>
 <div class="paragraph">
-<p>If valid inputs are provided, <code>ClearFilterCommandParser</code> will return a <code>ClearFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>ClearFilterCommand</code> calls the clearPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>ClearFilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using an always true PredicateManager object. UI will change and displaying an empty filter panel and the all Persons will show.</p>
+<p>If valid inputs are provided, <code>ClearFilterCommandParser</code> will return a <code>ClearFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>ClearFilterCommand</code> calls the clearPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>ClearFilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using an always true PredicateManager object. UI will change and displaying an empty filter panel and the all Persons will show. If an non-empty <code>FILTERLISTNAME</code> was be inputed in All Job Screen mode, or if no <code>FILTERLISTNAME</code> was be inputed in JOb Detail Screen mode, then <code>ClearFilterCommandParser</code> throws a <code>CommandException</code> and displays an error message to the user.</p>
 </div>
 </div>
 <div class="sect3">
@@ -674,146 +674,88 @@ values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters a
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-feature-2"><a class="link" href="#filter-feature-2">Filter Feature</a></h3>
+<h3 id="user-stories"><a class="link" href="#user-stories">User Stories</a></h3>
 <div class="paragraph">
-<p>With the filter feature, users can input specific parameters that act as conditions for slaveFinder() to conditionally update the <code>UniqueFilterList</code> and filter the <code>UniquePeronList</code>. Using these parameters, slaveFinder() shows applicants contains the specified parameters. Filter is visble and can combine or be deleted.</p>
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<div class="paragraph">
-<p>Command Format:
-<strong><code>filter [FILTERLISTNAME] fn/FILTERNAME [&lt;prefix&gt;/&lt;parameter&gt;]&#8230;&#8203;</code>
-</strong><code>deleteFilter [FILTERLISTNAME] fn/FILTERNAME</code>
-**<code>clearFilter [FILTERLISTNAME]</code></p>
-</div>
-<div class="ulist NOTE">
-<ul class="NOTE">
-<li>
-<p>FILTERLISTNAME indicate which Job list this command will used.</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="add-filter-2"><a class="link" href="#add-filter-2">Add Filter</a></h4>
-<div class="paragraph">
-<p>The command format for Adding a Filter is:</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>filter [FILTERLISTNAME] fn/FILTERNAME [n/NAME] pp/PHONE_NUMBER] [nric/NRIC] [e/EMAIL] [a/ADDRESS] [g/GENDER] [r/RACE] [m/MAJOR] [s/SCHOOL] [gr/GRADE] [is1/INTERVIEWSCORESQ1] [is2/INTERVIEWSCORESQ2] [is3/INTERVIEWSCORESQ3] [is4/INTERVIEWSCORESQ4] [is5/INTERVIEWSCORESQ5] [j/JOBS_APPLY]&#8230;&#8203; [kpl/KnowPROGLANG]&#8230;&#8203; [pj/PASTJOB]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 23%;">
+<col style="width: 25%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If multiple fields are provided, this command will filter the <code>UniquePersonList</code> by <code>AND</code> logic among multiple fields.</p>
-</li>
-<li>
-<p>If multiple keywords are provided in one command, this command will filter the <code>UniquePersonList</code> by <code>OR</code> logic among multiple keywords.</p>
-</li>
-<li>
-<p>Example: <code>filter fn/filter1 m/CS s/NUS</code> changes the UI to display applicants whose school is NUS <strong>AND</strong> major is CS. <code>filter fn/filter2 s/NUS NTU</code> changes the UI to display applicants whose school is NUS <strong>OR</strong> NTU.</p>
-</li>
-</ul>
-</div>
-</td>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by personal information</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter persons by some specific requirements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter out the persons who are not qualified efficiently.</p></td>
+</tr>
+</tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="use-case-filter-person"><a class="link" href="#use-case-filter-person">Use case: Filter person</a></h3>
 <div class="paragraph">
-<p>Upon entering the <code>filter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>FilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>FilterCommandParser</code> tokenizes the other argument string using <code>ArgumentTokenizer</code> object, The regular expressions will be checked and mapping each parameter to it&#8217;s respective prefix in an <code>ArgumentMultiMap</code> object. <code>FilterCommandParser</code> then creates a <code>predicatePersonDescriptor</code> object using the parameter
-values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters are specified by the user, or if an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>FilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="paragraph">
-<p>If valid inputs are provided, <code>predicatePersonDescriptor</code> will be created and <code>FilterCommandParser</code> will return a <code>FilterCommand</code> with parameters <code>predicatePersonDescriptor</code> and <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code> then creates a Predicate Manager object (implements Java 8’s Predicate interface) using the parameter values in <code>predicatePersonDescriptor</code> for each filter condition, and combines them into one single Predicate using the and() function in Predicate interface. After that, <code>FilterCommand</code> calls the addPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
-</div>
-<div class="sect4">
-<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
-<div class="paragraph">
-<p>The following sequence diagram shows the flow of events when the <code>filter fn/nus</code> command is entered by the user:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/FilterSD.png" alt="FilterSD" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Figure: Sequence diagram illustrating the interactions between the
-<code>Logic</code> and <code>Model</code> components when <code>filter</code> command is called.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-filter-2"><a class="link" href="#delete-filter-2">Delete Filter</a></h4>
-<div class="paragraph">
-<p>The command format for Adding a Filter is:</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deleteFilter [FILTERLISTNAME] FILTERNAME</code></p>
-</div>
-<div class="paragraph">
-<p>Upon entering the <code>deleteFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>DeleteFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>DeleteFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, or there is no filter name is provided, then <code>DeleteFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
-</div>
-<div class="paragraph">
-<p>If valid inputs are provided, <code>DeleteFilterCommandParser</code> will return a <code>DeleteFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>DeleteFilterCommand</code> calls the removePredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>FilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using all current undeleted PredicateManager object. UI will change and displaying all undeleted Filter name label and the Person who evaluates the set Predicate to true.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clear-filter-2"><a class="link" href="#clear-filter-2">Clear Filter</a></h4>
-<div class="paragraph">
-<p>The command format for Adding a Filter is:</p>
-</div>
-<div class="paragraph">
-<p>Format: `clearFilter [FILTERLISTNAME] `</p>
-</div>
-<div class="paragraph">
-<p>Upon entering the <code>clearFilter</code> command, the <code>filter</code> command word is stripped from the input and the argument fields are passed into the <code>ClearFilterCommandParser</code> class. The FilterListName will be stripped from the argument and parse to <code>LISTNAME</code> object. <code>ClearFilterCommandParser</code> tokenizes the FILTERNAME.  If an invalid <code>FILTERLISTNAME</code> was be inputed, then <code>ClearFilterCommandParser</code> throws a <code>ParseException</code> and displays an error message to the user.</p>
-</div>
-<div class="paragraph">
-<p>If valid inputs are provided, <code>ClearFilterCommandParser</code> will return a <code>ClearFilterCommand</code> with parameters <code>FilterName</code> and <code>FilterListName</code>. <code>FilterCommand</code>. After that, <code>ClearFilterCommand</code> calls the clearPredicate method in Model to set the Predicate List (indicated by FilterListName).In the end  <code>ClearFilterCommand</code> calls the updateFilteredPersonList method in Model to update applicants using an always true PredicateManager object. UI will change and displaying an empty filter panel and the all Persons will show.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-to-parse-parameters-in-filter-command-2"><a class="link" href="#aspect-how-to-parse-parameters-in-filter-command-2">Aspect: How to parse parameters in filter command</a></h5>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><strong>Alternative 1 (current choice):</strong> <code>FilterCommandParse</code> Create a <code>predicatePersonDescriptor</code> object and parse it to <code>FilterCommand</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Make filterCommand more comparable. We can compare <code>predicatePersonDescriptor</code> to say whether two filter Command is same.</p>
+<p>User requests to list persons</p>
 </li>
 <li>
-<p>Have better contol on a Filtercommand.</p>
+<p>slaveFinder() shows a list of persons</p>
 </li>
-</ul>
+<li>
+<p>User requests to filter persons fulfill some requirements in the list</p>
+</li>
+<li>
+<p>slaveFinder() shows a list of target persons</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>Cons: Logic is indirect.</p>
-</li>
-</ul>
+<p>3a. The given command is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. slaveFinder() shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> <code>FilterCommandParse</code> combine all conditions (parameters) in a Predicate and parse it to <code>FilterCommand</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Logic is direct.</p>
-</li>
-<li>
-<p>Cons: Predicate interface is incomparable so this make test more difficult.</p>
 </li>
 </ul>
 </div>
@@ -821,93 +763,57 @@ values in <code>ArgumentMultiMap</code> for each filter. If invalid parameters a
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="aspect-how-to-design-a-filter-name-restricted-format-2"><a class="link" href="#aspect-how-to-design-a-filter-name-restricted-format-2">Aspect: How to design a filter name restricted format</a></h5>
-<div class="ulist">
-<ul>
+<div class="sect2">
+<h3 id="filtering-a-list-of-persons"><a class="link" href="#filtering-a-list-of-persons">Filtering a list of persons</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Filter name can be any String.</p>
-<div class="ulist">
-<ul>
+<p>Filtering a list of person while All Job Screen show</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Make Filter name more flexible.</p>
+<p>Prerequisites: Using <code>list</code> command to get to All Job Screen.</p>
 </li>
 <li>
-<p>A filter may include many information. But user can only see this filter by it&#8217;s Filter name label. So it should allow user make a more detailed name for memory and control.</p>
+<p>Test case: <code>filter fn/CS m/CS</code><br>
+Expected: All persons with major CS in All Applicants list will show, a filter named "CS" will show on Filter list panel.</p>
 </li>
-</ul>
+<li>
+<p>Test case: <code>filter none</code><br>
+Expected: List unchangeed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect filter commands to try: <code>filter a</code>, <code>filter a fn/CS</code>,<code>filter b fn/CS</code>
+Expected: Similar to previous.</p>
+</li>
+</ol>
 </div>
 </li>
 <li>
-<p>Cons: Because user can take unpredictable signas their filter name, so it may cause unpredictable bugs.</p>
-</li>
-</ul>
-</div>
+<p>Filtering a list of person while Job Detail Screen show</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Create a job object using the <code>createJob</code> command. Display job list using the <code>DisplayJob</code> command. 4 lists of persons<br>
+will show.</p>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Filter name should only be restricted in the specified format</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to control and handle error.</p>
+<p>Test case: <code>filter a fn/CS m/CS</code><br>
+Expected: All persons with major CS in "Applicant" list will show on the Applicant list, a filter named "CS" will show on Filter list panel.</p>
 </li>
 <li>
-<p>Cons: User more need more complicated filter name.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-to-handle-filter-grade-and-interview-scores-2"><a class="link" href="#aspect-how-to-handle-filter-grade-and-interview-scores-2">Aspect: How to handle filter grade and interview scores</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Filter parameter become a value range and person&#8217;s score in this range will be returned.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Make more sense on filtering value related field.</p>
+<p>Test case: <code>filter none</code><br>
+Expected: List unchangeed. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>HR manager like to know peron&#8217;s score in a range, not exactly in a specified value.</p>
+<p>Other incorrect filter commands to try: <code>filter a</code>, <code>filter fn/CS</code>,<code>filter b fn/CS</code>
+Expected: Similar to previous.</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p>Cons: May add additional logic and error handling.</p>
-</li>
-</ul>
+</ol>
 </div>
 </li>
-<li>
-<p><strong>Alternative 2:</strong> Same logic as other field</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: HR manager like to know peron&#8217;s score in a range, not exactly equal to a specified value.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 14:49:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 15:46:10 UTC</div></div></div></body></html>
